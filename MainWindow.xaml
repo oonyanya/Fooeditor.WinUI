@@ -1,0 +1,141 @@
+﻿<Window
+    x:Class="FooEditor.WinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FooEditor.WinUI"
+    xmlns:view="using:FooEditor.WinUI.Views"
+    xmlns:vm="using:FooEditor.WinUI.ViewModels"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:foo="using:FooEditEngine.WinUI"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d">
+    <SplitView
+        IsPaneOpen="{Binding IsNavPaneOpen,Mode=TwoWay}"
+        DisplayMode="Inline"   
+        Name="RootPanel">
+        <SplitView.Resources>
+            <ResourceDictionary Source="MainPageStyles.xaml" />
+        </SplitView.Resources>
+        <SplitView.Pane>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <AppBarButton Command="{Binding CloseSideBarCommand}" Icon="Cancel"/>
+                </StackPanel>
+                <ContentControl Grid.Row="1"  x:Name="NavigationContent"></ContentControl>
+            </Grid>
+        </SplitView.Pane>
+        <Grid AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <CommandBar Grid.Row="0" Name="CommandBar" Background="#FFE6E6E6" >
+                <AppBarButton Icon="Add" Command="{Binding AddDocumentCommand}" x:Uid="AddButton">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton Icon="OpenFile" x:Uid="OpenButton">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Uid="OpenLocalButton" Command="{Binding OpenFileCommand}">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem x:Uid="OpenFromMRU" Click="OpenFromMRU_Click" />
+                            <MenuFlyoutItem x:Uid="OpenAsEncodeButton" Click="OpenAsEncodeButton_Click"/>
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton Icon="Save" x:Uid="SaveButton">
+                    <AppBarButton.Flyout>
+                        <MenuFlyout>
+                            <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{Binding SaveCommand}"/>
+                            <MenuFlyoutItem x:Uid="SaveAsButton" Command="{Binding SaveAsCommand}">
+                                <MenuFlyoutItem.KeyboardAccelerators>
+                                    <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                                </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem>
+                            <MenuFlyoutItem x:Uid="SaveAsEncodeButton" Click="SaveAsEncodeButton_Click"/>
+                        </MenuFlyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+                <AppBarButton Icon="Undo" Command="{Binding UndoCommand}" x:Uid="UndoButton">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="Z"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton Icon="Redo" Command="{Binding RedoCommand}" x:Uid="RedoButton">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="Y"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton Icon="Find" Name="FindButton" x:Uid="SearchButton" Command="{Binding OpenFindAndReplaceCommand}">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="F"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="H"/>
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <CommandBar.SecondaryCommands>
+                    <AppBarButton Command="{Binding PrintCommand}" x:Uid="PrintButton"/>
+                    <AppBarButton Name="GoToButton" x:Uid="GoToButton" Command="{Binding OpenGoToCommand}" />
+                    <AppBarButton x:Uid="PropertyButton" Command="{Binding OpenDocumentInfoCommand}"/>
+
+                    <AppBarButton Icon="List" x:Uid="OutlineTree" Command="{Binding OpenOutlineCommand}" />
+                    <AppBarButton x:Uid="Snipeet" Command="{Binding OpenSnipeetCommand}">
+                    </AppBarButton>
+                    <AppBarButton Icon="Setting" x:Uid="SettingButton" Command="{Binding OpenSettingPageCommand}">
+                    </AppBarButton>
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+            <muxc:TabView x:Name="DocumentList" Grid.Row="1" TabItemsSource="{Binding DocumentList}" SelectedItem="{Binding CurrentDocument,Mode=TwoWay}"
+                          Background="#FFE6E6E6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonCommand="{Binding AddDocumentCommand}"
+                          CanDrag="False" CanDragTabs="False" CanReorderTabs="False">
+                <muxc:TabView.TabItemTemplate>
+                    <DataTemplate>
+                        <muxc:TabViewItem CloseRequested="TabViewItem_CloseRequested" ToolTipService.ToolTip="{Binding FilePath}">
+                            <muxc:TabViewItem.HeaderTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <ProgressRing IsActive="True" Width="16" Height="16" Visibility="{Binding IsProgressNow,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                        <TextBlock Text="{Binding Title}" TextAlignment="Center" Margin="10,7,0,4"/>
+                                        <Ellipse Fill="Black" Width="7" Height="7" Margin="5,0,0,0" Visibility="{Binding Dirty,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </muxc:TabViewItem.HeaderTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <foo:FooTextBox 
+                            Name="Textbox" Grid.Row="0"
+                            Document="{Binding DocumentModel.Document}"
+                            FoldingStrategy="{Binding FoldingStrategy}" Hilighter="{Binding Hilighter}"
+                            FontFamily="{Binding FontFamily}" FontSize="{Binding FontSize}"
+                            Foreground="{Binding Foreground}" URL="{Binding URL}"
+                            Comment="{Binding Comment}" Keyword1="{Binding Keyword1}"
+                            Keyword2="{Binding Keyword2}" Literal="{Binding Literal}">
+                                </foo:FooTextBox>
+                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                    <TextBlock Text="{Binding CaretPostion,ElementName=Textbox,Converter={StaticResource TextPointConverter}}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding MagnificationPower,ElementName=Textbox,Converter={StaticResource RateConverter}}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding Encode.WebName}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding LineFeed}" Margin="0,0,10,0"/>
+                                    <TextBlock Text="{Binding DataContext.StatusMessage,ElementName=MainWindow}"/>
+                                </StackPanel>
+                            </Grid>
+                        </muxc:TabViewItem>
+                    </DataTemplate>
+                </muxc:TabView.TabItemTemplate>
+            </muxc:TabView>
+        </Grid>
+    </SplitView>
+
+</Window>
