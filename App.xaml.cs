@@ -1,9 +1,13 @@
-﻿using Microsoft.UI.Xaml;
+﻿using System.Linq;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using FooEditEngine.WinUI;
+using System;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Microsoft.Windows.AppLifecycle;
+using Windows.ApplicationModel.Activation;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -39,10 +43,27 @@ namespace FooEditor.WinUI
         /// <param name="args">Details about the launch request and process.</param>
         protected override async void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
+            var activatedEventArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
+
             FooTextBox.OwnerWindow = m_window;
+
+            m_window = new MainWindow();
             m_window.SetRootFrame(new Frame());
-            await m_window.Init(null, false, null);
+
+            if(activatedEventArgs.Kind == ExtendedActivationKind.File)
+            {
+                var fileargs = activatedEventArgs.Data as FileActivatedEventArgs;
+                var filepaths = from file in fileargs.Files
+                                select file.Path;
+                ObjectToXmlConverter conv = new ObjectToXmlConverter();
+                var param = conv.Convert(filepaths, typeof(string[]), null, null);
+                await m_window.Init(param, false, null);
+            }
+            else
+            {
+                await m_window.Init(null, false, null);
+            }
+
             m_window.Activate();
         }
 
