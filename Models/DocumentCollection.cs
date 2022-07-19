@@ -204,6 +204,7 @@ namespace FooEditor.WinUI.Models
         }
 
         public static string collection_name = "DocumentCollection.xml";
+
         public async Task SaveDocumentCollection()
         {
             await _SavingChanel.Writer.WriteAsync(null);

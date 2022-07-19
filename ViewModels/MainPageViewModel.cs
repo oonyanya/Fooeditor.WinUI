@@ -38,11 +38,8 @@ namespace FooEditor.WinUI.ViewModels
             //復元する必要がある
             if (require_restore)
             {
-                if (viewModelState != null && viewModelState.Count > 0)
-                {
-                    if (await this.MainViewService.ConfirmRestoreUserState())
-                        await RestoreUserDocument(viewModelState);
-                }
+                if (await this.MainViewService.ConfirmRestoreUserState())
+                    await RestoreUserDocument(null);
             }
 
             await this.OpenFromArgs(param);

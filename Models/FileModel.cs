@@ -99,6 +99,19 @@ namespace FooEditor
             return await GetFileModel(file);
         }
 
+        public static async Task<bool> IsExist(FileModelBuildType type, string s)
+        {
+            try
+            {
+                var file = await GetFileModel(type, s);
+                return true;
+            }
+            catch (FileNotFoundException)
+            {
+                return false;
+            }
+        }
+
         public static async Task<FileModel> CreateFileModel(string file_name,bool overwrite = false)
         {
             CreationCollisionOption coll_opt = overwrite ? CreationCollisionOption.ReplaceExisting : CreationCollisionOption.FailIfExists;

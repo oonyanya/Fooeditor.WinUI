@@ -2,6 +2,8 @@
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using FooEditEngine.WinUI;
+using FooEditor;
+using FooEditor.WinUI.Models;
 using System;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
@@ -49,7 +51,6 @@ namespace FooEditor.WinUI
 
             m_window = new MainWindow();
             m_window.SetRootFrame(new Frame());
-
             if(activatedEventArgs.Kind == ExtendedActivationKind.File)
             {
                 var fileargs = activatedEventArgs.Data as FileActivatedEventArgs;
@@ -61,7 +62,8 @@ namespace FooEditor.WinUI
             }
             else
             {
-                await m_window.Init(null, false, null);
+                bool require_restore = await FooEditor.FileModel.IsExist(FileModelBuildType.LocalFolder,DocumentCollection.collection_name);
+                await m_window.Init(null, require_restore , null);
             }
 
             m_window.Activate();
