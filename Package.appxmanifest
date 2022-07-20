@@ -12,7 +12,7 @@
     Version="1.25.40.0" />
 
   <Properties>
-    <DisplayName>FooEditor</DisplayName>
+    <DisplayName>FOOEDITOR</DisplayName>
     <PublisherDisplayName>FooProject</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -31,7 +31,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="FooEditor"
+        DisplayName="FOOEDITOR"
         Description="WinUI"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"
