@@ -9,7 +9,7 @@
   <Identity
     Name="51377FooProject.404123402F54A"
     Publisher="CN=224662AF-5ED0-4C7C-8B20-13E2E5ECF61F"
-    Version="1.25.40.0" />
+    Version="1.25.41.0" />
 
   <Properties>
     <DisplayName>FOOEDITOR</DisplayName>
@@ -31,7 +31,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="FOOEDITOR"
+        DisplayName="FooEditor"
         Description="WinUI"
         BackgroundColor="transparent"
         Square150x150Logo="Assets\Square150x150Logo.png"

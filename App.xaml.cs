@@ -47,7 +47,6 @@ namespace FooEditor.WinUI
         {
             var activatedEventArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
 
-            FooTextBox.OwnerWindow = m_window;
 
             m_window = new MainWindow();
             m_window.SetRootFrame(new Frame());
@@ -65,7 +64,7 @@ namespace FooEditor.WinUI
                 bool require_restore = await FooEditor.FileModel.IsExist(FileModelBuildType.LocalFolder,DocumentCollection.collection_name);
                 await m_window.Init(null, require_restore , null);
             }
-
+            FooTextBox.OwnerWindow = m_window;
             m_window.Activate();
         }
 

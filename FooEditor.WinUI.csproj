@@ -11,7 +11,7 @@
     <UseWinUI>true</UseWinUI>
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <AssemblyName>FooEditor.WinUI</AssemblyName>
+    <AssemblyName>FooEditor.UWP</AssemblyName>
     <PackageCertificateKeyFile>FooEditor.WinUI_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <DefaultLanguage>ja-JP</DefaultLanguage>
@@ -24,6 +24,8 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
+    <Version>1.25.41$(VersionPrefix)</Version>
+
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
     <DefineConstants>WINUI</DefineConstants>
@@ -55,13 +57,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="FooEditEngine.WinUI" Version="1.0.2" />
+    <PackageReference Include="FooEditEngine.WinUI" Version="1.0.3" />
     <PackageReference Include="Microsoft.AppCenter" Version="4.5.1" />
     <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.1" />
     <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.1" />
     <PackageReference Include="Microsoft.Toolkit.Mvvm" Version="7.1.2" />
     <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.2" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.2" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.3" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.1" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
