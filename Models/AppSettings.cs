@@ -25,6 +25,19 @@ namespace FooEditor.WinUI.Models
         {
         }
 
+        public Windows.Foundation.Rect WindowLocation
+        {
+            get
+            {
+                return (Windows.Foundation.Rect)GetGlobalEditorProperty("WindowLocation");
+            }
+            set
+            {
+                SetGlobalEditorProperty("WindowLocation", value);
+                this.OnChangedSetting();
+            }
+        }
+
         protected override void SetDefalutSetting()
         {
             if (GetGlobalEditorProperty("FontFamily") == null)
@@ -79,6 +92,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("EnableSyntaxHilight", true);
             if (GetGlobalEditorProperty("EnableGenerateFolding") == null)
                 SetGlobalEditorProperty("EnableGenerateFolding", true);
+            if (GetGlobalEditorProperty("WindowLocation") == null)
+                SetGlobalEditorProperty("WindowLocation", Windows.Foundation.Rect.Empty);
         }
 
         public const string TextType = "Text";

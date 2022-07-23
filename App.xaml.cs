@@ -65,6 +65,37 @@ namespace FooEditor.WinUI
                 await m_window.Init(null, require_restore , null);
             }
             FooTextBox.OwnerWindow = m_window;
+
+            var rect = AppSettings.Current.WindowLocation;
+            if (rect != Windows.Foundation.Rect.Empty)
+            {
+                var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(m_window);
+                var windowID = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+                var wnd = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowID);
+                wnd.MoveAndResize(new Windows.Graphics.RectInt32(
+                        (int)rect.X,
+                        (int)rect.Y,
+                        (int)rect.Width,
+                        (int)rect.Height
+                    )
+                    );
+                wnd.Closing += async (s, e) =>
+                {
+                    e.Cancel = true;
+                    var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(m_window);
+                    var windowID = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+                    var wnd = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowID);
+                    AppSettings.Current.WindowLocation = new Windows.Foundation.Rect(
+                        wnd.Position.X,
+                        wnd.Position.Y,
+                        wnd.Size.Width,
+                        wnd.Size.Height
+                        );
+                    await AppSettings.Current.Save();
+                    App.Current.Exit();
+                };
+            }
+
             m_window.Activate();
         }
 
