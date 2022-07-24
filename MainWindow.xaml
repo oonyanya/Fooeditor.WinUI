@@ -25,6 +25,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Orientation="Horizontal">
                     <AppBarButton Command="{Binding CloseSideBarCommand}" Icon="Cancel"/>
+                    <AppBarButton Command="{Binding BackSideBarCommand}" Icon="Back" />
                 </StackPanel>
                 <ContentControl Grid.Row="1"  x:Name="NavigationContent"></ContentControl>
             </Grid>

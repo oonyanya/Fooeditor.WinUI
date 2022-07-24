@@ -433,6 +433,16 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
+        public RelayCommand<object> BackSideBarCommand
+        {
+            get
+            {
+                return new RelayCommand<object>((s) => {
+                    this.NavigationService.GoBack();
+                });
+            }
+        }
+
         public RelayCommand<object> OpenOutlineCommand
         {
             get

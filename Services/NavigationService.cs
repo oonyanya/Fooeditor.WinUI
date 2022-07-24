@@ -37,7 +37,6 @@ namespace FooEditor.WinUI.Services
                 if(_frame != value)
                 {
                     _frame = value;
-                    _frame.IsNavigationStackEnabled = false;
                     _frame.Navigated += (s, e) => {
                         Page page = e.Content as Page;
                         Type type = Type.GetType("FooEditor.WinUI.ViewModels." + page.GetType().Name + "ViewModel");
@@ -71,13 +70,15 @@ namespace FooEditor.WinUI.Services
         {
             if (this.frame == null)
                 return;
-            if (this.frame.IsNavigationStackEnabled)
+            if(this.frame.CanGoBack)
                 this.frame.GoBack();
         }
 
         public void ClearHistory()
         {
+            var oldCacheSize = _frame.CacheSize;
             _frame.CacheSize = 0;
+            _frame.CacheSize = oldCacheSize;
         }
 
         public void Navigate(string name)
