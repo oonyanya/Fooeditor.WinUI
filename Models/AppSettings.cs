@@ -87,7 +87,7 @@ namespace FooEditor.WinUI.Models
             if (GetGlobalEditorProperty("DefaultEncoding") == null)
                 SetGlobalEditorProperty("DefaultEncoding", System.Text.Encoding.Unicode.WebName);
             if (GetGlobalEditorProperty("EnableAutoSave") == null)
-                SetGlobalEditorProperty("EnableAutoSave", true);
+                SetGlobalEditorProperty("EnableAutoSave", false);
             if (GetGlobalEditorProperty("EnableSyntaxHilight") == null)
                 SetGlobalEditorProperty("EnableSyntaxHilight", true);
             if (GetGlobalEditorProperty("EnableGenerateFolding") == null)
