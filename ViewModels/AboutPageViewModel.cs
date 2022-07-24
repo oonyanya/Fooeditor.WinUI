@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
+﻿using FooEditor.WinUI.Models;
 
 namespace FooEditor.WinUI.ViewModels
 {
@@ -13,7 +8,7 @@ namespace FooEditor.WinUI.ViewModels
         {
             get
             {
-                return typeof(App).GetTypeInfo().Assembly.GetName().Name;
+                return AboutModel.AppName;
             }
         }
 
@@ -21,7 +16,7 @@ namespace FooEditor.WinUI.ViewModels
         {
             get
             {
-                return typeof(App).GetTypeInfo().Assembly.GetName().Version.ToString();
+                return AboutModel.Version;
             }
         }
     }
