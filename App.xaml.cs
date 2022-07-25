@@ -72,6 +72,22 @@ namespace FooEditor.WinUI
 
             wnd.Title = AboutModel.AppName;
 
+            wnd.Closing += async (s, e) =>
+            {
+                e.Cancel = true;
+                var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(m_window);
+                var windowID = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
+                var wnd = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowID);
+                AppSettings.Current.WindowLocation = new Windows.Foundation.Rect(
+                    wnd.Position.X,
+                    wnd.Position.Y,
+                    wnd.Size.Width,
+                    wnd.Size.Height
+                    );
+                await AppSettings.Current.Save();
+                App.Current.Exit();
+            };
+
             var rect = AppSettings.Current.WindowLocation;
             if (rect != Windows.Foundation.Rect.Empty)
             {
@@ -82,21 +98,6 @@ namespace FooEditor.WinUI
                         (int)rect.Height
                     )
                     );
-                wnd.Closing += async (s, e) =>
-                {
-                    e.Cancel = true;
-                    var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(m_window);
-                    var windowID = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);
-                    var wnd = Microsoft.UI.Windowing.AppWindow.GetFromWindowId(windowID);
-                    AppSettings.Current.WindowLocation = new Windows.Foundation.Rect(
-                        wnd.Position.X,
-                        wnd.Position.Y,
-                        wnd.Size.Width,
-                        wnd.Size.Height
-                        );
-                    await AppSettings.Current.Save();
-                    App.Current.Exit();
-                };
             }
 
             m_window.Activate();
