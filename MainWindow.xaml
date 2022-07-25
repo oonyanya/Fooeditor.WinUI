@@ -57,12 +57,12 @@
                 <AppBarButton Icon="Save" x:Uid="SaveButton">
                     <AppBarButton.Flyout>
                         <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{Binding SaveCommand}"/>
-                            <MenuFlyoutItem x:Uid="SaveAsButton" Command="{Binding SaveAsCommand}">
+                            <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{Binding SaveCommand}">
                                 <MenuFlyoutItem.KeyboardAccelerators>
                                     <KeyboardAccelerator Modifiers="Control" Key="S"/>
                                 </MenuFlyoutItem.KeyboardAccelerators>
                             </MenuFlyoutItem>
+                            <MenuFlyoutItem x:Uid="SaveAsButton" Command="{Binding SaveAsCommand}"/>
                             <MenuFlyoutItem x:Uid="SaveAsEncodeButton" Click="SaveAsEncodeButton_Click"/>
                         </MenuFlyout>
                     </AppBarButton.Flyout>
