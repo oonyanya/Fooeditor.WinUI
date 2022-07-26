@@ -23,8 +23,8 @@
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.ShowTab,Mode=TwoWay}" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}" x:Uid="ShowTab" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.ShowLineBreak,Mode=TwoWay}" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}" x:Uid="ShowLineBreak" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.IndentBySpace,Mode=TwoWay}" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}" x:Uid="IndentBySpace" HorizontalAlignment="Stretch"/>
-            <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableAutoIndent,Mode=TwoWay}" x:Uid="EnableAutoIndent" HorizontalAlignment="Stretch"/>
-            <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableAutoComplete,Mode=TwoWay}" x:Uid="EnableAutoComplete" HorizontalAlignment="Stretch"/>
+            <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableAutoIndent,Mode=TwoWay}" x:Uid="EnableAutoIndent" HorizontalAlignment="Stretch" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}"/>
+            <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableAutoComplete,Mode=TwoWay}" x:Uid="EnableAutoComplete" HorizontalAlignment="Stretch" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableSyntaxHilight,Mode=TwoWay}" x:Uid="EnableSyntaxHilight" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding FileType.EnableGenerateFolding,Mode=TwoWay}" x:Uid="EnableGenerateFolding" IsEnabled="{Binding FileType.NoInherit,Mode=TwoWay}" HorizontalAlignment="Stretch"/>
             <TextBlock x:Uid="LineBreakLabel" Margin="0,0,0,10"/>
