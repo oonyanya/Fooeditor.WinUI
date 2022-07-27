@@ -17,7 +17,7 @@ using Windows.Storage.AccessCache;
 using Windows.UI.Xaml;
 using Windows.Graphics.Printing;
 using Windows.System.Threading;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FooEditor.WinUI.ViewModels
 {

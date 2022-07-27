@@ -1,6 +1,6 @@
 ﻿using FooEditor.WinUI.Models;
 using FooEditor.WinUI.Services;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

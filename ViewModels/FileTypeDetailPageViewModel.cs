@@ -4,7 +4,7 @@ using FooEditEngine;
 using FooEditor.WinUI.Models;
 using System.Collections.Generic;
 using System.Linq;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 using FooEditor.WinUI.Services;
 
 namespace FooEditor.WinUI.ViewModels

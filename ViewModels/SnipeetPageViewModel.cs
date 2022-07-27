@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Linq;
 using FooEditor.WinUI.Services;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FooEditor.WinUI.ViewModels
 {

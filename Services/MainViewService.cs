@@ -1,6 +1,6 @@
 ﻿using FooEditor.WinUI.Models;
 using FooEditor.WinUI.Views;
-using Microsoft.Toolkit.Uwp.Notifications;
+using CommunityToolkit.WinUI.Notifications;
 using System;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;

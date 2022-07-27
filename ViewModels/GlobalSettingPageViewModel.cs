@@ -3,7 +3,7 @@ using System.Windows.Input;
 using FooEditor.WinUI.Models;
 using FooEditEngine;
 using System;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FooEditor.WinUI.ViewModels
 {

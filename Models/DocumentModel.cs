@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using FooEditEngine;
 using FooEditEngine.WinUI;
 using EncodeDetect;
-using Microsoft.Toolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace FooEditor.WinUI.Models
 {

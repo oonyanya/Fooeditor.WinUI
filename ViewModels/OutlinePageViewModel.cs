@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using FooEditEngine;
 using FooEditor.WinUI.Models;
 using Windows.ApplicationModel.DataTransfer;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FooEditor.WinUI.ViewModels
 {

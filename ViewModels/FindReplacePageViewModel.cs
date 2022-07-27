@@ -2,7 +2,7 @@
 using System;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
-using Microsoft.Toolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.Input;
 
 namespace FooEditor.WinUI.ViewModels
 {
