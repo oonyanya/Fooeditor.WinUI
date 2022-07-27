@@ -7,6 +7,8 @@
     xmlns:vm="using:FooEditor.WinUI.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:cwuc="using:CommunityToolkit.WinUI.UI.Controls"
+    xmlns:brushes="using:CommunityToolkit.WinUI.UI.Media"
     xmlns:foo="using:FooEditEngine.WinUI"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d">
@@ -104,7 +106,6 @@
                             <muxc:TabViewItem.HeaderTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <ProgressRing IsActive="True" Width="16" Height="16" Visibility="{Binding IsProgressNow,Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                         <TextBlock Text="{Binding Title}" TextAlignment="Center" Margin="10,7,0,4"/>
                                         <Ellipse Fill="Black" Width="7" Height="7" Margin="5,0,0,0" Visibility="{Binding Dirty,Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                     </StackPanel>
@@ -131,6 +132,17 @@
                                     <TextBlock Text="{Binding LineFeed}" Margin="0,0,10,0"/>
                                     <TextBlock Text="{Binding DataContext.StatusMessage,ElementName=MainWindow}"/>
                                 </StackPanel>
+                                <cwuc:Loading IsLoading="{Binding IsProgressNow}">
+                                    <cwuc:Loading.Background>
+                                        <brushes:AcrylicBrush TintColor="Black"
+                                                              TintOpacity="0.4"
+                                                              BlurAmount="8" />
+                                    </cwuc:Loading.Background>
+                                    <StackPanel Orientation="Horizontal" Padding="12">
+                                        <ProgressRing IsActive="True" Margin="0,0,12,0"/>
+                                        <TextBlock Text="Loading now..." VerticalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                </cwuc:Loading>
                             </Grid>
                         </muxc:TabViewItem>
                     </DataTemplate>
