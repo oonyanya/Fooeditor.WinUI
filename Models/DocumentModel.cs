@@ -46,10 +46,19 @@ namespace FooEditor.WinUI.Models
                 this.OnPropertyChanged();
             }
         }
+
+        string _Title;
         public string Title
         {
-            get;
-            set;
+            get
+            {
+                return _Title;
+            }
+            set
+            {
+                _Title = value;
+                this.OnPropertyChanged();
+            }
         }
 
         bool _IsProgressNow;
@@ -115,6 +124,31 @@ namespace FooEditor.WinUI.Models
             set
             {
                 _LineFeed = value;
+                this.OnPropertyChanged();
+            }
+        }
+
+        public IFoldingStrategy FoldingStrategy
+        {
+            get
+            {
+                return Document.LayoutLines.FoldingStrategy;
+            }
+            set
+            {
+                Document.LayoutLines.FoldingStrategy = value;
+                this.OnPropertyChanged();
+            }
+        }
+        public IHilighter Hilighter
+        {
+            get
+            {
+                return Document.LayoutLines.Hilighter;
+            }
+            set
+            {
+                Document.LayoutLines.Hilighter = value;
                 this.OnPropertyChanged();
             }
         }
@@ -312,6 +346,9 @@ namespace FooEditor.WinUI.Models
                 await this.Document.SaveAsync(sw);
             }
             this.CurrentFilePath = file.Path;
+            this.Title = file.Name;
+            if (enc != null)
+                this.Encode = enc;
             this.IsDirty = false;
             this.hasUnAutoSavedDocument = true; //メタデータを更新する必要がある
         }

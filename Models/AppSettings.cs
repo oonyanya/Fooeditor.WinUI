@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 using Windows.Storage;
 using System.Xml;
+using CommunityToolkit.WinUI.Helpers;
 
 namespace FooEditor.WinUI.Models
 {
@@ -94,6 +95,24 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("EnableGenerateFolding", true);
             if (GetGlobalEditorProperty("WindowLocation") == null)
                 SetGlobalEditorProperty("WindowLocation", Windows.Foundation.Rect.Empty);
+            if (GetGlobalEditorProperty("ForegroundColor") == null)
+                SetGlobalEditorProperty("ForegroundColor", Microsoft.UI.Colors.Black.ToHex());
+            if (GetGlobalEditorProperty("ControlCharColor") == null)
+                SetGlobalEditorProperty("ControlCharColor", Microsoft.UI.Colors.Gray.ToHex());
+            if (GetGlobalEditorProperty("KeywordColor") == null)
+                SetGlobalEditorProperty("KeywordColor", Microsoft.UI.Colors.Blue.ToHex());
+            if (GetGlobalEditorProperty("Keyword2Color") == null)
+                SetGlobalEditorProperty("Keyword2Color", Microsoft.UI.Colors.DarkCyan.ToHex());
+            if (GetGlobalEditorProperty("URLColor") == null)
+                SetGlobalEditorProperty("URLColor", Microsoft.UI.Colors.Blue.ToHex());
+            if (GetGlobalEditorProperty("CommentColor") == null)
+                SetGlobalEditorProperty("CommentColor", Microsoft.UI.Colors.Green.ToHex());
+            if (GetGlobalEditorProperty("LiteralColor") == null)
+                SetGlobalEditorProperty("LiteralColor", Microsoft.UI.Colors.Brown.ToHex());
+            if (GetGlobalEditorProperty("UpdateAreaColor") == null)
+                SetGlobalEditorProperty("UpdateAreaColor", Microsoft.UI.Colors.MediumSeaGreen.ToHex());
+            if (GetGlobalEditorProperty("LineMarkerColor") == null)
+                SetGlobalEditorProperty("LineMarkerColor", Microsoft.UI.Colors.Gray.ToHex());
         }
 
         public const string TextType = "Text";
