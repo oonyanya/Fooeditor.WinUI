@@ -44,7 +44,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _Foreground = new SolidColorBrush(UI.Colors.Black);
+        Brush _Foreground = new SolidColorBrush(AppSettings.Current.ForegroundColor);
         public Brush Foreground
         {
             get
@@ -57,7 +57,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _URL = new SolidColorBrush(UI.Colors.Blue);
+        Brush _URL = new SolidColorBrush(AppSettings.Current.URLColor);
         public Brush URL
         {
             get
@@ -70,7 +70,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _Comment = new SolidColorBrush(UI.Colors.Green);
+        Brush _Comment = new SolidColorBrush(AppSettings.Current.CommentColor);
         public Brush Comment
         {
             get
@@ -83,7 +83,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _Keyword1 = new SolidColorBrush(UI.Colors.Blue);
+        Brush _Keyword1 = new SolidColorBrush(AppSettings.Current.KeywordColor);
         public Brush Keyword1
         {
             get
@@ -96,7 +96,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _Keyword2 = new SolidColorBrush(UI.Colors.DarkCyan);
+        Brush _Keyword2 = new SolidColorBrush(AppSettings.Current.Keyword2Color);
         public Brush Keyword2
         {
             get
@@ -109,7 +109,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _Literal = new SolidColorBrush(UI.Colors.Brown);
+        Brush _Literal = new SolidColorBrush(AppSettings.Current.LiteralColor);
         public Brush Literal
         {
             get
@@ -122,7 +122,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _ControlChar = new SolidColorBrush(UI.Colors.Gray);
+        Brush _ControlChar = new SolidColorBrush(AppSettings.Current.ControlCharColor);
         public Brush ControlChar
         {
             get
@@ -135,7 +135,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _UpdateArea = new SolidColorBrush(UI.Colors.DarkGreen);
+        Brush _UpdateArea = new SolidColorBrush(AppSettings.Current.UpdateAreaColor);
         public Brush UpdateArea
         {
             get
@@ -148,7 +148,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        Brush _LineMarker = new SolidColorBrush(UI.Colors.Gray);
+        Brush _LineMarker = new SolidColorBrush(AppSettings.Current.LineMarkerColor);
         public Brush LineMarker
         {
             get
