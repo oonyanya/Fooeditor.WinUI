@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AddButton.Label" xml:space="preserve">
+  <data name="AddButton.Text" xml:space="preserve">
     <value>新規作成</value>
   </data>
   <data name="DocumentTypeLabel.Text" xml:space="preserve">
@@ -277,22 +277,22 @@
   <data name="LineFeedTypeLabel.Text" xml:space="preserve">
     <value>改行コード</value>
   </data>
-  <data name="GoToButton.Label" xml:space="preserve">
+  <data name="GoToButton.Text" xml:space="preserve">
     <value>行ジャンプ</value>
   </data>
-  <data name="PropertyButton.Label" xml:space="preserve">
+  <data name="PropertyButton.Text" xml:space="preserve">
     <value>ドキュメントのプロパティ</value>
   </data>
-  <data name="RedoButton.Label" xml:space="preserve">
+  <data name="RedoButton.Text" xml:space="preserve">
     <value>やり直す</value>
   </data>
   <data name="SaveLocalButton.Text" xml:space="preserve">
     <value>上書き保存</value>
   </data>
-  <data name="SearchButton.Label" xml:space="preserve">
+  <data name="SearchButton.Text" xml:space="preserve">
     <value>検索</value>
   </data>
-  <data name="UndoButton.Label" xml:space="preserve">
+  <data name="UndoButton.Text" xml:space="preserve">
     <value>元に戻す</value>
   </data>
   <data name="ShowFoundPattern.Header" xml:space="preserve">
@@ -354,19 +354,19 @@
   <data name="EnableAutoIndent.Header" xml:space="preserve">
     <value>オートインデンドを有効にする</value>
   </data>
-  <data name="PrintButton.Label" xml:space="preserve">
+  <data name="PrintButton.Text" xml:space="preserve">
     <value>印刷</value>
   </data>
-  <data name="SettingButton.Label" xml:space="preserve">
+  <data name="SettingButton.Text" xml:space="preserve">
     <value>設定</value>
   </data>
   <data name="EnableAutoComplete.Header" xml:space="preserve">
     <value>自動補完を有効にする</value>
   </data>
-  <data name="OutlineTree.Label" xml:space="preserve">
+  <data name="OutlineTree.Text" xml:space="preserve">
     <value>アウトラインツリー</value>
   </data>
-  <data name="Snipeet.Label" xml:space="preserve">
+  <data name="Snipeet.Text" xml:space="preserve">
     <value>スニペット</value>
   </data>
   <data name="RestoreUsareStateMessage" xml:space="preserve">
@@ -427,7 +427,7 @@
   <data name="OpenButton.Label" xml:space="preserve">
     <value>ファイルを開く</value>
   </data>
-  <data name="SaveButton.Label" xml:space="preserve">
+  <data name="SaveButton.Text" xml:space="preserve">
     <value>保存</value>
   </data>
   <data name="OpenConfigureFolder.Content" xml:space="preserve">

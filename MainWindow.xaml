@@ -37,68 +37,57 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <CommandBar Grid.Row="0" Name="CommandBar" Background="#FFE6E6E6" >
-                <AppBarButton Icon="Add" Command="{Binding AddDocumentCommand}" x:Uid="AddButton">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="N"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton Icon="OpenFile" x:Uid="OpenButton">
-                    <AppBarButton.Flyout>
-                        <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="OpenLocalButton" Command="{Binding OpenFileCommand}">
-                                <MenuFlyoutItem.KeyboardAccelerators>
-                                    <KeyboardAccelerator Modifiers="Control" Key="O"/>
-                                </MenuFlyoutItem.KeyboardAccelerators>
-                            </MenuFlyoutItem>
-                            <MenuFlyoutItem x:Uid="OpenFromMRU" Click="OpenFromMRU_Click" />
-                            <MenuFlyoutItem x:Uid="OpenAsEncodeButton" Click="OpenAsEncodeButton_Click"/>
-                        </MenuFlyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
-                <AppBarButton Icon="Save" x:Uid="SaveButton">
-                    <AppBarButton.Flyout>
-                        <MenuFlyout>
-                            <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{Binding SaveCommand}">
-                                <MenuFlyoutItem.KeyboardAccelerators>
-                                    <KeyboardAccelerator Modifiers="Control" Key="S"/>
-                                </MenuFlyoutItem.KeyboardAccelerators>
-                            </MenuFlyoutItem>
-                            <MenuFlyoutItem x:Uid="SaveAsButton" Command="{Binding SaveAsCommand}"/>
-                            <MenuFlyoutItem x:Uid="SaveAsEncodeButton" Click="SaveAsEncodeButton_Click"/>
-                        </MenuFlyout>
-                    </AppBarButton.Flyout>
-                </AppBarButton>
-                <AppBarButton Icon="Undo" Command="{Binding UndoCommand}" x:Uid="UndoButton">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="Z"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton Icon="Redo" Command="{Binding RedoCommand}" x:Uid="RedoButton">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="Y"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <AppBarButton Icon="Find" Name="FindButton" x:Uid="SearchButton" Command="{Binding OpenFindAndReplaceCommand}">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="F"/>
-                        <KeyboardAccelerator Modifiers="Control" Key="H"/>
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
-                <CommandBar.SecondaryCommands>
-                    <AppBarButton Command="{Binding PrintCommand}" x:Uid="PrintButton"/>
-                    <AppBarButton Name="GoToButton" x:Uid="GoToButton" Command="{Binding OpenGoToCommand}" />
-                    <AppBarButton x:Uid="PropertyButton" Command="{Binding OpenDocumentInfoCommand}"/>
-
-                    <AppBarButton Icon="List" x:Uid="OutlineTree" Command="{Binding OpenOutlineCommand}" />
-                    <AppBarButton x:Uid="Snipeet" Command="{Binding OpenSnipeetCommand}">
-                    </AppBarButton>
-                    <AppBarButton Icon="Setting" x:Uid="SettingButton" Command="{Binding OpenSettingPageCommand}">
-                    </AppBarButton>
-                </CommandBar.SecondaryCommands>
-            </CommandBar>
+            <muxc:MenuBar Grid.Row="0">
+                <muxc:MenuBarItem Title="File">
+                    <MenuFlyoutItem x:Uid="OpenLocalButton" Command="{Binding OpenFileCommand}" Icon="OpenFile">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="O"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem x:Uid="OpenFromMRU" Click="OpenFromMRU_Click" />
+                    <MenuFlyoutItem x:Uid="OpenAsEncodeButton" Click="OpenAsEncodeButton_Click"/>
+                    <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{Binding SaveCommand}" Icon="Save">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem x:Uid="SaveAsButton" Command="{Binding SaveAsCommand}"/>
+                    <MenuFlyoutItem x:Uid="SaveAsEncodeButton" Click="SaveAsEncodeButton_Click"/>
+                    <MenuFlyoutItem Command="{Binding PrintCommand}" x:Uid="PrintButton"/>
+                </muxc:MenuBarItem>
+                <muxc:MenuBarItem Title="Edit">
+                    <MenuFlyoutItem  Icon="Add" Command="{Binding AddDocumentCommand}" x:Uid="AddButton">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem >
+                    <MenuFlyoutItem  Icon="Undo" Command="{Binding UndoCommand}" x:Uid="UndoButton">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="Z"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem >
+                    <MenuFlyoutItem  Icon="Redo" Command="{Binding RedoCommand}" x:Uid="RedoButton">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="Y"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem >
+                    <MenuFlyoutItem  Icon="Find" Name="FindButton" x:Uid="SearchButton" Command="{Binding OpenFindAndReplaceCommand}">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="F"/>
+                            <KeyboardAccelerator Modifiers="Control" Key="H"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem >
+                    <MenuFlyoutItem Name="GoToButton" x:Uid="GoToButton" Command="{Binding OpenGoToCommand}" />
+                    <MenuFlyoutItem x:Uid="PropertyButton" Command="{Binding OpenDocumentInfoCommand}"/>
+                    <MenuFlyoutItem Icon="List" x:Uid="OutlineTree" Command="{Binding OpenOutlineCommand}" />
+                    <MenuFlyoutItem x:Uid="Snipeet" Command="{Binding OpenSnipeetCommand}">
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Icon="Setting" x:Uid="SettingButton" Command="{Binding OpenSettingPageCommand}">
+                    </MenuFlyoutItem>
+                </muxc:MenuBarItem>
+            </muxc:MenuBar>
             <muxc:TabView x:Name="DocumentList" Grid.Row="1" TabItemsSource="{Binding DocumentList}" SelectedItem="{Binding CurrentDocument,Mode=TwoWay}"
-                          Background="#FFE6E6E6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonCommand="{Binding AddDocumentCommand}"
+                          HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AddTabButtonCommand="{Binding AddDocumentCommand}"
                           CanDrag="False" CanDragTabs="False" CanReorderTabs="False">
                 <muxc:TabView.TabItemTemplate>
                     <DataTemplate>
