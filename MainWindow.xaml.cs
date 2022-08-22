@@ -34,7 +34,8 @@ namespace FooEditor.WinUI
                 }
                 return null;
             };
-            this.RootPanel.DataContext = new MainPageViewModel(navigationService, mainViewService);
+            this.ViewModel = new MainPageViewModel(navigationService, mainViewService);
+            this.RootPanel.DataContext = this.ViewModel;
             this.Activated += MainWindow_Activated;
         }
 
@@ -69,6 +70,8 @@ namespace FooEditor.WinUI
             });
             printTaskRequestedDeferral = args.Request.GetDeferral();
         }
+
+        public MainPageViewModel ViewModel { get; private set; }
 
 
         bool _inited = false;
