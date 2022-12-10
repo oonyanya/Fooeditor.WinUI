@@ -64,10 +64,10 @@
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Media" Version="7.1.2" />
     <PackageReference Include="FooEditEngine.WinUI" Version="1.0.6" />
-    <PackageReference Include="Microsoft.AppCenter" Version="4.5.3" />
-    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.5.3" />
-    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.5.3" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.1.5" />
+    <PackageReference Include="Microsoft.AppCenter" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="5.0.1" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221116.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
