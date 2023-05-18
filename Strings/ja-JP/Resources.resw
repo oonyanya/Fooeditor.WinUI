@@ -469,4 +469,7 @@
   <data name="ForegroundColorLabel.Text" xml:space="preserve">
     <value>文字の色</value>
   </data>
+  <data name="BackgroundColorLabel.Text" xml:space="preserve">
+    <value>背景色</value>
+  </data>
 </root>

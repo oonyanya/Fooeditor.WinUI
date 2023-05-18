@@ -97,6 +97,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("WindowLocation", Windows.Foundation.Rect.Empty);
             if (GetGlobalEditorProperty("ForegroundColor") == null)
                 SetGlobalEditorProperty("ForegroundColor", Microsoft.UI.Colors.Black.ToHex());
+            if (GetGlobalEditorProperty("BackgroundColor") == null)
+                SetGlobalEditorProperty("BackgroundColor", Microsoft.UI.Colors.White.ToHex());
             if (GetGlobalEditorProperty("ControlCharColor") == null)
                 SetGlobalEditorProperty("ControlCharColor", Microsoft.UI.Colors.Gray.ToHex());
             if (GetGlobalEditorProperty("KeywordColor") == null)

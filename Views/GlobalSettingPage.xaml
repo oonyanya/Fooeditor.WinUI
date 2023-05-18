@@ -66,6 +66,8 @@
             </ComboBox>
             <TextBlock x:Uid="ForegroundColorLabel" Margin="0,0,0,10"/>
             <cwuc:ColorPickerButton SelectedColor="{Binding Setting.ForegroundColor,Mode=TwoWay}" Style="{StaticResource ColorPickerStyle}" Margin="0,0,0,20"/>
+            <TextBlock x:Uid="BackgroundColorLabel" Margin="0,0,0,10"/>
+            <cwuc:ColorPickerButton SelectedColor="{Binding Setting.BackgroundColor,Mode=TwoWay}" Style="{StaticResource ColorPickerStyle}" Margin="0,0,0,20"/>
             <TextBlock x:Uid="KeywordColorLabel" Margin="0,0,0,10"/>
             <cwuc:ColorPickerButton SelectedColor="{Binding Setting.KeywordColor,Mode=TwoWay}" Style="{StaticResource ColorPickerStyle}" Margin="0,0,0,20"/>
             <TextBlock x:Uid="Keyword2ColorLabel" Margin="0,0,0,10"/>
