@@ -13,7 +13,6 @@
     <EnablePreviewMsixTooling>true</EnablePreviewMsixTooling>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <AssemblyName>FooEditor.WinUI</AssemblyName>
-    <PackageCertificateKeyFile>FooEditor.WinUI_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <DefaultLanguage>ja-JP</DefaultLanguage>
     <GenerateTemporaryStoreCertificate>True</GenerateTemporaryStoreCertificate>
@@ -51,6 +50,7 @@
     <MultilingualFallbackLanguage>ja-JP</MultilingualFallbackLanguage>
     <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
+    <PackageCertificateThumbprint>6C1F8777DFC8D0D0325298DF79093779AEB55BB1</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MultilingualResources\FooEditor.UWP.en.xlf" />
