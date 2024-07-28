@@ -11,6 +11,7 @@
     >
     <Page.Resources>
         <local:LineBreakMethodConverter x:Name="LineBreakMethodConverter"/>
+        <local:RateConverter x:Key="RateConverter"/>
         <Style TargetType="cwuc:ColorPickerButton" x:Key="ColorPickerStyle">
             <Setter Property="ColorPickerStyle">
                 <Setter.Value>
@@ -32,6 +33,8 @@
             <Slider Margin="0,0,0,20" Value="{Binding Setting.FontSize,Mode=TwoWay}" Minimum="1" Maximum="72"/>
             <TextBlock x:Uid="TabCharLabel" Margin="0,0,0,10"/>
             <Slider Margin="0,0,0,20" Value="{Binding Setting.TabChar,Mode=TwoWay}" Minimum="1" Maximum="32"/>
+            <TextBlock x:Uid="LineEmHeightLabel" Margin="0,0,0,10"/>
+            <Slider Margin="0,0,0,20" Value="{Binding Setting.LineEmHeight,Mode=TwoWay,Converter={StaticResource RateConverter}}" Minimum="100" Maximum="200"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.IsRTL,Mode=TwoWay}" x:Uid="EnableRTL" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.ShowRuler,Mode=TwoWay}" x:Uid="ShowRuler" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.ShowLineNumber,Mode=TwoWay}" x:Uid="ShowLineNumber" HorizontalAlignment="Stretch"/>

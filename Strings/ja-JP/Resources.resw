@@ -472,4 +472,7 @@
   <data name="BackgroundColorLabel.Text" xml:space="preserve">
     <value>背景色</value>
   </data>
+  <data name="LineEmHeightLabel.Text" xml:space="preserve">
+    <value>行間(%)</value>
+  </data>
 </root>

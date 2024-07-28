@@ -477,6 +477,10 @@
           <source>背景色</source>
           <target state="new">背景色</target>
         </trans-unit>
+        <trans-unit id="LineEmHeightLabel.Text" translate="yes" xml:space="preserve">
+          <source>行間(%)</source>
+          <target state="new">行間(%)</target>
+        </trans-unit>
       </group>
     </body>
   </file>

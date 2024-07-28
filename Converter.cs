@@ -87,6 +87,21 @@ namespace FooEditor.WinUI
 
     public class RateConverter : IValueConverter
     {
+        public object Convert(object value, System.Type targetType, object parameter, string language)
+        {
+            double v = (double)value;
+            return  (double)(v * 100);
+        }
+
+        public object ConvertBack(object value, System.Type targetType, object parameter, string language)
+        {
+            double v = (double)value;
+            return (double)( v / 100);
+        }
+    }
+
+    public class MagnificationPower : IValueConverter
+    {
         ResourceLoader loader = new ResourceLoader();
         public object Convert(object value, System.Type targetType, object parameter, string language)
         {

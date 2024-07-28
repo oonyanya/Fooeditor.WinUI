@@ -115,6 +115,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("UpdateAreaColor", Microsoft.UI.Colors.MediumSeaGreen.ToHex());
             if (GetGlobalEditorProperty("LineMarkerColor") == null)
                 SetGlobalEditorProperty("LineMarkerColor", Microsoft.UI.Colors.Gray.ToHex());
+            if(GetGlobalEditorProperty("LineEmHeight") == null)
+                SetGlobalEditorProperty("LineEmHeight", 1.5);
         }
 
         public const string TextType = "Text";
