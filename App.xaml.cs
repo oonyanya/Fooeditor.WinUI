@@ -5,9 +5,6 @@ using FooEditEngine.WinUI;
 using FooEditor;
 using FooEditor.WinUI.Models;
 using System;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
 using Microsoft.Windows.AppLifecycle;
 using Windows.ApplicationModel.Activation;
 
@@ -32,10 +29,6 @@ namespace FooEditor.WinUI
             //EncodeDetectを正常に動作させるために必要
             //http://www.atmarkit.co.jp/ait/articles/1509/30/news039.html
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
-#if !DEBUG
-            AppCenter.Start("7fc70d1f-9bf6-4da7-b9f2-aa49d827b0fe",typeof(Analytics), typeof(Crashes));
-#endif
         }
 
         /// <summary>
