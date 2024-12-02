@@ -24,7 +24,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <Version>1.25.49$(VersionPrefix)</Version>
+    <Version>1.25.50$(VersionPrefix)</Version>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
@@ -65,14 +65,14 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageReference Include="CommunityToolkit.WinUI" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.Notifications" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Media" Version="7.1.2" />
-    <PackageReference Include="FooEditEngine.WinUI" Version="1.0.14" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240627000" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1" />
+    <PackageReference Include="FooEditEngine.WinUI" Version="1.0.15" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
   <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
