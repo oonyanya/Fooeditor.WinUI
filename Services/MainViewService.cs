@@ -1,14 +1,16 @@
 ﻿using FooEditor.WinUI.Models;
 using FooEditor.WinUI.Views;
-using CommunityToolkit.WinUI.Notifications;
 using System;
 using System.Threading.Tasks;
+using Microsoft.Windows.AppNotifications;
 using Windows.Storage.Pickers;
 using Windows​.Data​.Xml​.Dom;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using WinRT.Interop;
 using Windows.Graphics.Printing;
+using System.Collections.Generic;
+using Microsoft.Windows.AppNotifications.Builder;
 
 namespace FooEditor.WinUI.Services
 {
@@ -91,35 +93,10 @@ namespace FooEditor.WinUI.Services
 
         public void MakeNotifaction(string text)
         {
-            ToastContent toastContent = new ToastContent()
-            {
-                Scenario = ToastScenario.Default,
-                Visual = new ToastVisual()
-                {
-                    BindingGeneric = new ToastBindingGeneric()
-                    {
-                        Children =
-                        {
-                            new AdaptiveText()
-                            {
-                                Text = text
-                            },
-                        },
-                        AppLogoOverride = new ToastGenericAppLogo()
-                        {
-                            Source = "ms-appx:///Assets/StoreLogo.png"
-                        }
-                    }
-                }
-            };
-
-
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(toastContent.GetContent());
-
-            var toast = new ToastNotification(xmlDoc);
-            ToastNotificationManager.CreateToastNotifier().Show(toast); // Display toast
-
+            var nofity = new AppNotificationBuilder()
+                .AddText(text)
+                .BuildNotification();
+            AppNotificationManager.Default.Show(nofity);
         }
     }
 }
