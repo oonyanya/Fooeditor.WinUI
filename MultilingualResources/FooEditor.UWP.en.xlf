@@ -144,8 +144,8 @@
           <target state="new">最近使用したファイル</target>
         </trans-unit>
         <trans-unit id="LineNumberOutOutOfRange" translate="yes" xml:space="preserve">
-          <source>行番号の値は{0}から{1}の範囲内でなければなりません</source>
-          <target state="new">行番号の値は{0}から{1}の範囲内でなければなりません</target>
+          <source>行番号の値は{0}から{1}未満の範囲内でなければなりません</source>
+          <target state="new">行番号の値は{0}から{1}未満の範囲内でなければなりません</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}と{1}を削除しないでください</note>
         </trans-unit>
         <trans-unit id="LineBreakMethodCharUnit" translate="yes" xml:space="preserve">
