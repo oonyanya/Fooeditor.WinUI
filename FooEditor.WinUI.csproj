@@ -24,7 +24,8 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <Version>1.25.51$(VersionPrefix)</Version>
+	  <VersionPrefix>-alpha</VersionPrefix>
+    <Version>1.26.1$(VersionPrefix)</Version>
     <SupportedOSPlatformVersion>10.0.18362.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
@@ -69,7 +70,7 @@
     <PackageReference Include="CommunityToolkit.WinUI" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Controls" Version="7.1.2" />
     <PackageReference Include="CommunityToolkit.WinUI.UI.Media" Version="7.1.2" />
-    <PackageReference Include="FooEditEngine.WinUI" Version="1.0.16" />
+    <PackageReference Include="FooEditEngine.WinUI" Version="1.1.2-alpha" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.6.241114003" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" />
     <Manifest Include="$(ApplicationManifest)" />
