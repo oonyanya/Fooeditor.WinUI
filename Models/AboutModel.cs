@@ -1,14 +1,27 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 
 namespace FooEditor.WinUI.Models
 {
     public class AboutModel
     {
+        static FileVersionInfo _fileVersionInfo;
+
+        private static  FileVersionInfo GetVersionInfo()
+        {
+            if (_fileVersionInfo == null)
+            {
+                var fullPath = typeof(App).GetTypeInfo().Assembly.Location;
+                _fileVersionInfo = FileVersionInfo.GetVersionInfo(fullPath);
+            }
+            return _fileVersionInfo;
+        }
+
         public static string AppName
         {
             get
             {
-                return typeof(App).GetTypeInfo().Assembly.GetName().Name;
+                return GetVersionInfo().ProductName;
             }
         }
 
@@ -16,7 +29,7 @@ namespace FooEditor.WinUI.Models
         {
             get
             {
-                return typeof(App).GetTypeInfo().Assembly.GetName().Version.ToString();
+                return GetVersionInfo().ProductVersion;
             }
         }
     }

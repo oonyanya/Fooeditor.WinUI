@@ -9,8 +9,8 @@
     >
 
     <StackPanel Orientation="Vertical" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="30,30,30,30">
-        <TextBlock Text="{Binding AppName}"  Style="{StaticResource TitleTextBlockStyle}"/>
-        <TextBlock Text="{Binding Version}" />
+        <TextBlock Text="{Binding AppName}"  Style="{StaticResource TitleTextBlockStyle}" TextWrapping="Wrap"/>
+        <TextBlock Text="{Binding Version}" TextWrapping="Wrap"/>
         <TextBlock Text="Copyright FooProject(c)"/>
     </StackPanel>
 </Page>
