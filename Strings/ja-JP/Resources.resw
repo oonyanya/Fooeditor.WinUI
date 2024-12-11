@@ -221,7 +221,7 @@
     <value>最近使用したファイル</value>
   </data>
   <data name="LineNumberOutOutOfRange" xml:space="preserve">
-    <value>行番号の値は{0}から{1}の範囲内でなければなりません</value>
+    <value>行番号の値は{0}から{1}未満の範囲内でなければなりません</value>
     <comment>{0}と{1}を削除しないでください</comment>
   </data>
   <data name="LineBreakMethodCharUnit" xml:space="preserve">

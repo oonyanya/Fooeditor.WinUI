@@ -65,10 +65,10 @@ namespace FooEditor.WinUI.ViewModels
                 return new RelayCommand<object>((s) =>
                 {
                     var newPostion = new FooEditEngine.TextPoint();
-                    newPostion.row = this.ToRow;
+                    newPostion.row = this.ToRow - 1;
                     newPostion.col = 0;
                     var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-                    if (this.ToRow > MaxRow)
+                    if (this.ToRow < 0 || this.ToRow > MaxRow)
                     {
                         this.Result = string.Format(loader.GetString("LineNumberOutOutOfRange"), 1, this.MaxRow);
                         return;
