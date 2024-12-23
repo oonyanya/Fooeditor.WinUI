@@ -44,7 +44,7 @@ namespace FooEditor.WinUI.Models
             if (GetGlobalEditorProperty("FontFamily") == null)
                 SetGlobalEditorProperty("FontFamily", "Cambria");
             if (GetGlobalEditorProperty("FontSize") == null)
-                SetGlobalEditorProperty("FontSize", 16.0);
+                SetGlobalEditorProperty("FontSize", 12.0);
             if (GetGlobalEditorProperty("TabChar") == null)
                 SetGlobalEditorProperty("TabChar", 4);
             if (GetGlobalEditorProperty("IsRTL") == null)
