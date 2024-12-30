@@ -327,7 +327,7 @@ namespace FooEditor.WinUI.Models
             if (this.CurrentFilePath == null)
                 return;
             this.Encode = enc;
-            var currentFile = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath,this.CurrentFilePath);
+            var currentFile = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, this.CurrentFilePath);
             using (var stream = await currentFile.GetReadStreamAsync())
             using (var sr = new StreamReader(stream, enc))
             {
@@ -338,19 +338,26 @@ namespace FooEditor.WinUI.Models
 
         public async Task SaveFile(FileModel file,Encoding enc = null)
         {
-            using (var stream = await file.GetWriteStreamAsync())
-            using (var sw = new StreamWriter(stream, enc == null ? this.Encode : enc))
+            try
             {
-                stream.SetLength(0);    //ゴミが残るのを回避する
-                sw.NewLine = LineFeedHelper.ToString(this.LineFeed);
-                await this.Document.SaveAsync(sw);
+                this.IsProgressNow = true;
+                this.IsProgressNow = true;
+                using (var stream = await file.GetWriteStreamAsync())
+                using (var sw = new StreamWriter(stream, enc == null ? this.Encode : enc))
+                {
+                    stream.SetLength(0);    //ゴミが残るのを回避する
+                    sw.NewLine = LineFeedHelper.ToString(this.LineFeed);
+                    await this.Document.SaveAsync(sw);
+                }
+                this.CurrentFilePath = file.Path;
+                this.Title = file.Name;
+                if (enc != null)
+                    this.Encode = enc;
+                this.IsDirty = false;
+                this.hasUnAutoSavedDocument = true; //メタデータを更新する必要がある
+            }finally { 
+                this.IsProgressNow = false;
             }
-            this.CurrentFilePath = file.Path;
-            this.Title = file.Name;
-            if (enc != null)
-                this.Encode = enc;
-            this.IsDirty = false;
-            this.hasUnAutoSavedDocument = true; //メタデータを更新する必要がある
         }
 
         public const string prefixFileName = "save_";
