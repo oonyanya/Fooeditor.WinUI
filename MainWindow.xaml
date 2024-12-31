@@ -7,11 +7,11 @@
     xmlns:vm="using:FooEditor.WinUI.ViewModels"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:cwuc="using:CommunityToolkit.WinUI.UI.Controls"
-    xmlns:brushes="using:CommunityToolkit.WinUI.UI.Media"
+    xmlns:cwuc="using:CommunityToolkit.WinUI.Controls"
+    xmlns:brushes="using:CommunityToolkit.WinUI.Media"
     xmlns:foo="using:FooEditEngine.WinUI"
     xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
-    xmlns:cwucnv="using:CommunityToolkit.WinUI.UI.Converters"
+    xmlns:cwucnv="using:CommunityToolkit.WinUI.Converters"
     mc:Ignorable="d"
     >
     <SplitView
@@ -102,12 +102,23 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </muxc:TabViewItem.HeaderTemplate>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <foo:FooTextBox 
+                            <cwuc:SwitchPresenter Value="{Binding DocumentModel.IsProgressNow,Mode=OneWay}">
+                                <cwuc:Case Value="True">
+                                    <StackPanel Orientation="Horizontal" Padding="12">
+                                        <StackPanel.Background>
+                                            <SolidColorBrush Color="Black" Opacity="0.4"></SolidColorBrush>
+                                        </StackPanel.Background>
+                                        <ProgressRing IsActive="True" Margin="0,0,12,0"/>
+                                        <TextBlock Text="Loading now..." VerticalAlignment="Center" Foreground="White"/>
+                                    </StackPanel>
+                                </cwuc:Case>
+                                <cwuc:Case  IsDefault="True">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <foo:FooTextBox 
                                     Name="Textbox" Grid.Row="0"
                                     Document="{Binding DocumentModel.Document}"
                                     FoldingStrategy="{Binding DocumentModel.FoldingStrategy}" Hilighter="{Binding DocumentModel.Hilighter}"
@@ -118,26 +129,17 @@
                                     ControlChar="{Binding ControlChar}" UpdateArea="{Binding UpdateArea}"
                                     LineMarker="{Binding LineMarker}" LineEmHeight="{Binding Settings.LineEmHeight}"
                                     >
-                                </foo:FooTextBox>
-                                <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                    <TextBlock Text="{Binding CaretPostion,ElementName=Textbox,Converter={StaticResource TextPointConverter}}" Margin="0,0,10,0"/>
-                                    <TextBlock Text="{Binding MagnificationPower,ElementName=Textbox,Converter={StaticResource MagnificationPower}}" Margin="0,0,10,0"/>
-                                    <TextBlock Text="{Binding DocumentModel.Encode.WebName}" Margin="0,0,10,0"/>
-                                    <TextBlock Text="{Binding DocumentModel.LineFeed}" Margin="0,0,10,0"/>
-                                    <TextBlock Text="{Binding StatusMessage,ElementName=MainWindow}"/>
-                                </StackPanel>
-                                <cwuc:Loading IsLoading="{Binding DocumentModel.IsProgressNow}">
-                                    <cwuc:Loading.Background>
-                                        <brushes:AcrylicBrush TintColor="Black"
-                                                              TintOpacity="0.4"
-                                                              BlurAmount="8" />
-                                    </cwuc:Loading.Background>
-                                    <StackPanel Orientation="Horizontal" Padding="12">
-                                        <ProgressRing IsActive="True" Margin="0,0,12,0"/>
-                                        <TextBlock Text="Loading now..." VerticalAlignment="Center" Foreground="White"/>
-                                    </StackPanel>
-                                </cwuc:Loading>
-                            </Grid>
+                                        </foo:FooTextBox>
+                                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                            <TextBlock Text="{Binding CaretPostion,ElementName=Textbox,Converter={StaticResource TextPointConverter}}" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding MagnificationPower,ElementName=Textbox,Converter={StaticResource MagnificationPower}}" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding DocumentModel.Encode.WebName}" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding DocumentModel.LineFeed}" Margin="0,0,10,0"/>
+                                            <TextBlock Text="{Binding StatusMessage,ElementName=MainWindow}"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </cwuc:Case>
+                            </cwuc:SwitchPresenter>
                         </muxc:TabViewItem>
                     </DataTemplate>
                 </muxc:TabView.TabItemTemplate>
