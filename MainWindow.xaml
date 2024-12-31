@@ -123,11 +123,16 @@
                                     Document="{Binding DocumentModel.Document}"
                                     FoldingStrategy="{Binding DocumentModel.FoldingStrategy}" Hilighter="{Binding DocumentModel.Hilighter}"
                                     FontFamily="{Binding Settings.FontFamily}" FontSize="{Binding Settings.FontSize}"
-                                    Foreground="{Binding Foreground}" URL="{Binding URL}"
-                                    Comment="{Binding Comment}" Keyword1="{Binding Keyword1}"
-                                    Keyword2="{Binding Keyword2}" Literal="{Binding Literal}"
-                                    ControlChar="{Binding ControlChar}" UpdateArea="{Binding UpdateArea}"
-                                    LineMarker="{Binding LineMarker}" LineEmHeight="{Binding Settings.LineEmHeight}"
+                                    Foreground="{Binding Settings.ForegroundColor,Converter={StaticResource Color2BrushConverter}}"
+                                    URL="{Binding Settings.URLColor,Converter={StaticResource Color2BrushConverter}}"
+                                    Comment="{Binding Settings.CommentColor,Converter={StaticResource Color2BrushConverter}}"
+                                    Keyword1="{Binding Settings.KeywordColor,Converter={StaticResource Color2BrushConverter}}"
+                                    Keyword2="{Binding Settings.Keyword2Color,Converter={StaticResource Color2BrushConverter}}"
+                                    Literal="{Binding Settings.LiteralColor,Converter={StaticResource Color2BrushConverter}}"
+                                    ControlChar="{Binding Settings.ControlCharColor,Converter={StaticResource Color2BrushConverter}}"
+                                    UpdateArea="{Binding Settings.UpdateAreaColor,Converter={StaticResource Color2BrushConverter}}"
+                                    LineMarker="{Binding Settings.LineMarkerColor,Converter={StaticResource Color2BrushConverter}}"
+                                    LineEmHeight="{Binding Settings.LineEmHeight}"
                                     >
                                         </foo:FooTextBox>
                                         <StackPanel Grid.Row="1" Orientation="Horizontal">

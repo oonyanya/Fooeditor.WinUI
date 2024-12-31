@@ -6,6 +6,8 @@ using Windows.ApplicationModel.Resources;
 using EncodeDetect;
 using System.IO;
 using System.Runtime.Serialization;
+using Microsoft.UI.Xaml.Media;
+using Microsoft.UI;
 
 namespace FooEditor.WinUI
 {
@@ -177,4 +179,32 @@ namespace FooEditor.WinUI
             throw new System.NotImplementedException();
         }
     }
+
+    public class Color2BrushConverter : IValueConverter
+    {
+        /// <summary>
+        /// Color⇒brush
+        /// </summary>
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+
+            if (value == null)
+            {
+                return new SolidColorBrush(Colors.Blue);
+            }
+
+            if (value is Windows.UI.Color color)
+            {
+                return new SolidColorBrush(color);
+            }
+            else
+                throw new Exception("Can't get SolidColorBrush");
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
 }

@@ -9,5 +9,6 @@
     <local:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     <local:LineFeedConverter x:Key="LineFeedConverter"/>
     <local:MagnificationPower x:Key="MagnificationPower"/>
+    <local:Color2BrushConverter x:Key="Color2BrushConverter" />
 
 </ResourceDictionary>
