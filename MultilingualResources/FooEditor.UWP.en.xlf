@@ -8,370 +8,370 @@
       <group id="FOOEDITOR.WINUI/STRINGS/JA-JP/RESOURCES.RESW">
         <trans-unit id="AddButton.Text" translate="yes" xml:space="preserve">
           <source>新規作成</source>
-          <target state="new">新規作成</target>
+          <target state="translated">New</target>
         </trans-unit>
         <trans-unit id="DocumentTypeLabel.Text" translate="yes" xml:space="preserve">
           <source>文章タイプ</source>
-          <target state="new">文章タイプ</target>
+          <target state="translated">Document Type</target>
         </trans-unit>
         <trans-unit id="EnableRTL.Header" translate="yes" xml:space="preserve">
           <source>右から左に表示する</source>
-          <target state="new">右から左に表示する</target>
+          <target state="translated">Show Right to Left</target>
         </trans-unit>
         <trans-unit id="EndRowLabel.Text" translate="yes" xml:space="preserve">
           <source>最終行</source>
-          <target state="new">最終行</target>
+          <target state="translated">Last Line</target>
         </trans-unit>
         <trans-unit id="FileTypesPageCommand.Content" translate="yes" xml:space="preserve">
           <source>ファイルタイプ</source>
-          <target state="new">ファイルタイプ</target>
+          <target state="translated">File Type</target>
         </trans-unit>
         <trans-unit id="FindButtonLabel.Content" translate="yes" xml:space="preserve">
           <source>検索</source>
-          <target state="new">検索</target>
+          <target state="translated">FInd</target>
         </trans-unit>
         <trans-unit id="FindPatternLabel.Text" translate="yes" xml:space="preserve">
           <source>検索対象</source>
-          <target state="new">検索対象</target>
+          <target state="translated">Find Pattern</target>
         </trans-unit>
         <trans-unit id="FontFamilyLabel.Text" translate="yes" xml:space="preserve">
           <source>フォント</source>
-          <target state="new">フォント</target>
+          <target state="translated">Font</target>
         </trans-unit>
         <trans-unit id="FontSizeLabel.Text" translate="yes" xml:space="preserve">
           <source>フォントサイズ</source>
-          <target state="new">フォントサイズ</target>
+          <target state="translated">Font Size</target>
         </trans-unit>
         <trans-unit id="LineJumpButtonLabel.Content" translate="yes" xml:space="preserve">
           <source>ジャンプ</source>
-          <target state="new">ジャンプ</target>
+          <target state="translated">JUmp</target>
         </trans-unit>
         <trans-unit id="NewDocumentTitle" translate="yes" xml:space="preserve">
           <source>無題{0}</source>
-          <target state="new">無題{0}</target>
+          <target state="translated">Untitled-{0}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}を削除しないでください</note>
         </trans-unit>
         <trans-unit id="RemoveButton.Content" translate="yes" xml:space="preserve">
           <source>削除</source>
-          <target state="new">削除</target>
+          <target state="translated">Remove</target>
         </trans-unit>
         <trans-unit id="ReplaceAllButton.Content" translate="yes" xml:space="preserve">
           <source>全て置換</source>
-          <target state="new">全て置換</target>
+          <target state="translated">Replace All</target>
         </trans-unit>
         <trans-unit id="ReplaceButtonLabel.Content" translate="yes" xml:space="preserve">
           <source>置換</source>
-          <target state="new">置換</target>
+          <target state="translated">Replace</target>
         </trans-unit>
         <trans-unit id="ReplacePattern.Text" translate="yes" xml:space="preserve">
           <source>置換対象</source>
-          <target state="new">置換対象</target>
+          <target state="translated">Replace Pattern</target>
         </trans-unit>
         <trans-unit id="RestrictSearchLabel.Content" translate="yes" xml:space="preserve">
           <source>大文字と小文字を区別する</source>
-          <target state="new">大文字と小文字を区別する</target>
+          <target state="translated">Casesensive</target>
         </trans-unit>
         <trans-unit id="GlobalSettingPageCommand.Content" translate="yes" xml:space="preserve">
           <source>グローバル設定</source>
-          <target state="new">グローバル設定</target>
+          <target state="translated">Global Setting</target>
         </trans-unit>
         <trans-unit id="SharedDataTitle" translate="yes" xml:space="preserve">
           <source>選択された文字列</source>
-          <target state="new">選択された文字列</target>
+          <target state="translated">Selected Text</target>
         </trans-unit>
         <trans-unit id="ShowCaretLine.Header" translate="yes" xml:space="preserve">
           <source>キャレットラインを表示する</source>
-          <target state="new">キャレットラインを表示する</target>
+          <target state="translated">Show Caret Line</target>
         </trans-unit>
         <trans-unit id="ShowDetailButton.Content" translate="yes" xml:space="preserve">
           <source>詳細</source>
-          <target state="new">詳細</target>
+          <target state="translated">Detail</target>
         </trans-unit>
         <trans-unit id="ShowFullSpace.Header" translate="yes" xml:space="preserve">
           <source>全角スペースを表示する</source>
-          <target state="new">全角スペースを表示する</target>
+          <target state="translated">Show Full Space</target>
         </trans-unit>
         <trans-unit id="ShowLineNumber.Header" translate="yes" xml:space="preserve">
           <source>行番号を表示する</source>
-          <target state="new">行番号を表示する</target>
+          <target state="translated">Show Line Number</target>
         </trans-unit>
         <trans-unit id="ShowRuler.Header" translate="yes" xml:space="preserve">
           <source>ルーラを表示する</source>
-          <target state="new">ルーラを表示する</target>
+          <target state="translated">Show Ruler</target>
         </trans-unit>
         <trans-unit id="ShowTab.Header" translate="yes" xml:space="preserve">
           <source>タブを表示する</source>
-          <target state="new">タブを表示する</target>
+          <target state="translated">Show Tab</target>
         </trans-unit>
         <trans-unit id="TabCharLabel.Text" translate="yes" xml:space="preserve">
           <source>タブサイズ</source>
-          <target state="new">タブサイズ</target>
+          <target state="translated">Tab Width</target>
         </trans-unit>
         <trans-unit id="ToRowLabel.Text" translate="yes" xml:space="preserve">
           <source>行番号</source>
-          <target state="new">行番号</target>
+          <target state="translated">Line Number</target>
         </trans-unit>
         <trans-unit id="UseGroupLabel.Content" translate="yes" xml:space="preserve">
           <source>置き換え時にグループ指定を行う</source>
-          <target state="new">置き換え時にグループ指定を行う</target>
+          <target state="translated">Use group when replace</target>
         </trans-unit>
         <trans-unit id="UseRegExLabel.Content" translate="yes" xml:space="preserve">
           <source>正規表現を使用する</source>
-          <target state="new">正規表現を使用する</target>
+          <target state="translated">Use regex</target>
         </trans-unit>
         <trans-unit id="PrivacyButton.Content" translate="yes" xml:space="preserve">
           <source>プライバシーポリシー</source>
-          <target state="new">プライバシーポリシー</target>
+          <target state="translated">Privacy Policy</target>
         </trans-unit>
         <trans-unit id="SettingCommandTitle" translate="yes" xml:space="preserve">
           <source>グローバル設定</source>
-          <target state="new">グローバル設定</target>
+          <target state="translated">Global Setting</target>
         </trans-unit>
         <trans-unit id="HomeTitle.Text" translate="yes" xml:space="preserve">
           <source>ホーム</source>
-          <target state="new">ホーム</target>
+          <target state="translated">Home</target>
         </trans-unit>
         <trans-unit id="OpenLocalButton.Text" translate="yes" xml:space="preserve">
           <source>ファイルを開く...</source>
-          <target state="new">ファイルを開く...</target>
+          <target state="translated">Open File...</target>
         </trans-unit>
         <trans-unit id="NewListGroup" translate="yes" xml:space="preserve">
           <source>新規作成</source>
-          <target state="new">新規作成</target>
+          <target state="translated">New</target>
         </trans-unit>
         <trans-unit id="RecentListGroup" translate="yes" xml:space="preserve">
           <source>最近使用したファイル</source>
-          <target state="new">最近使用したファイル</target>
+          <target state="translated">Recent FIle</target>
         </trans-unit>
         <trans-unit id="LineNumberOutOutOfRange" translate="yes" xml:space="preserve">
           <source>行番号の値は{0}から{1}未満の範囲内でなければなりません</source>
-          <target state="new">行番号の値は{0}から{1}未満の範囲内でなければなりません</target>
+          <target state="translated">Line Number is must be between from {0} to {1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}と{1}を削除しないでください</note>
         </trans-unit>
         <trans-unit id="LineBreakMethodCharUnit" translate="yes" xml:space="preserve">
           <source>任意の文字数で折り返す</source>
-          <target state="new">任意の文字数で折り返す</target>
+          <target state="translated">Break line by char nums</target>
         </trans-unit>
         <trans-unit id="LineBreakMethodNone" translate="yes" xml:space="preserve">
           <source>折り返さない</source>
-          <target state="new">折り返さない</target>
+          <target state="translated">Don't break line</target>
         </trans-unit>
         <trans-unit id="LineBreakMethodPageBound" translate="yes" xml:space="preserve">
           <source>右端で折り返す</source>
-          <target state="new">右端で折り返す</target>
+          <target state="translated">Break line by window</target>
         </trans-unit>
         <trans-unit id="LineBreakCountLabel.Text" translate="yes" xml:space="preserve">
           <source>折り返しの文字数</source>
-          <target state="new">折り返しの文字数</target>
+          <target state="translated">Char nums for line break</target>
         </trans-unit>
         <trans-unit id="LineBreakLabel.Text" translate="yes" xml:space="preserve">
           <source>折り返し</source>
-          <target state="new">折り返し</target>
+          <target state="translated">Line Break</target>
         </trans-unit>
         <trans-unit id="FindPatternTextBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>検索対象</source>
-          <target state="new">検索対象</target>
+          <target state="translated">Find Parttern</target>
         </trans-unit>
         <trans-unit id="ReplacePatternTextBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>置換対象</source>
-          <target state="new">置換対象</target>
+          <target state="translated">Replace parttern</target>
         </trans-unit>
         <trans-unit id="ToRowTextBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>ジャンプ先の行</source>
-          <target state="new">ジャンプ先の行</target>
+          <target state="translated">To row</target>
         </trans-unit>
         <trans-unit id="MagnificationPowerFormat" translate="yes" xml:space="preserve">
           <source>拡大率:{0}%</source>
-          <target state="new">拡大率:{0}%</target>
+          <target state="translated">Magnifaction power:{0}%</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}を削除しないでください</note>
         </trans-unit>
         <trans-unit id="TextPointFormat" translate="yes" xml:space="preserve">
           <source>行:{0} 桁:{1}</source>
-          <target state="new">行:{0} 桁:{1}</target>
+          <target state="translated">Row:{0} Col:{1}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}と{1}は削除しないでください</note>
         </trans-unit>
         <trans-unit id="NoInherit.Header" translate="yes" xml:space="preserve">
           <source>グローバル設定を適用しない</source>
-          <target state="new">グローバル設定を適用しない</target>
+          <target state="translated">No inherit global setting</target>
         </trans-unit>
         <trans-unit id="ExtensionListLable.Text" translate="yes" xml:space="preserve">
           <source>適用する拡張子</source>
-          <target state="new">適用する拡張子</target>
+          <target state="translated">Extension</target>
         </trans-unit>
         <trans-unit id="ShowLineBreak.Header" translate="yes" xml:space="preserve">
           <source>改行マークを表示する</source>
-          <target state="new">改行マークを表示する</target>
+          <target state="translated">Show Line break</target>
         </trans-unit>
         <trans-unit id="EncodeTypeLabel.Text" translate="yes" xml:space="preserve">
           <source>文字コード</source>
-          <target state="new">文字コード</target>
+          <target state="translated">Encoding</target>
         </trans-unit>
         <trans-unit id="NoButton" translate="yes" xml:space="preserve">
           <source>いいえ</source>
-          <target state="new">いいえ</target>
+          <target state="translated">No</target>
         </trans-unit>
         <trans-unit id="YesButton" translate="yes" xml:space="preserve">
           <source>はい</source>
-          <target state="new">はい</target>
+          <target state="translated">Yes</target>
         </trans-unit>
         <trans-unit id="LineFeedTypeLabel.Text" translate="yes" xml:space="preserve">
           <source>改行コード</source>
-          <target state="new">改行コード</target>
+          <target state="translated">Line Feed</target>
         </trans-unit>
         <trans-unit id="GoToButton.Text" translate="yes" xml:space="preserve">
           <source>行ジャンプ</source>
-          <target state="new">行ジャンプ</target>
+          <target state="translated">Line Jump</target>
         </trans-unit>
         <trans-unit id="PropertyButton.Text" translate="yes" xml:space="preserve">
           <source>ドキュメントのプロパティ</source>
-          <target state="new">ドキュメントのプロパティ</target>
+          <target state="translated">Document Property</target>
         </trans-unit>
         <trans-unit id="RedoButton.Text" translate="yes" xml:space="preserve">
           <source>やり直す</source>
-          <target state="new">やり直す</target>
+          <target state="translated">Redo</target>
         </trans-unit>
         <trans-unit id="SaveLocalButton.Text" translate="yes" xml:space="preserve">
           <source>上書き保存</source>
-          <target state="new">上書き保存</target>
+          <target state="translated">Save</target>
         </trans-unit>
         <trans-unit id="SearchButton.Text" translate="yes" xml:space="preserve">
           <source>検索</source>
-          <target state="new">検索</target>
+          <target state="translated">Find</target>
         </trans-unit>
         <trans-unit id="UndoButton.Text" translate="yes" xml:space="preserve">
           <source>元に戻す</source>
-          <target state="new">元に戻す</target>
+          <target state="translated">Undo</target>
         </trans-unit>
         <trans-unit id="ShowFoundPattern.Header" translate="yes" xml:space="preserve">
           <source>検索パターンを表示する</source>
-          <target state="new">検索パターンを表示する</target>
+          <target state="translated">Show find pattern</target>
         </trans-unit>
         <trans-unit id="NotFoundInDocument" translate="yes" xml:space="preserve">
           <source>ドキュメントの終わりまで検索しました</source>
-          <target state="new">ドキュメントの終わりまで検索しました</target>
+          <target state="translated">Not found in document</target>
         </trans-unit>
         <trans-unit id="BottomMarginLabel.Text" translate="yes" xml:space="preserve">
           <source>下方向の余白</source>
-          <target state="new">下方向の余白</target>
+          <target state="translated">Bottom Mergin</target>
         </trans-unit>
         <trans-unit id="FooterLabel.Text" translate="yes" xml:space="preserve">
           <source>フッター</source>
-          <target state="new">フッター</target>
+          <target state="translated">Fotter</target>
         </trans-unit>
         <trans-unit id="HeaderLabel.Text" translate="yes" xml:space="preserve">
           <source>ヘッダー</source>
-          <target state="new">ヘッダー</target>
+          <target state="translated">Header</target>
         </trans-unit>
         <trans-unit id="LeftMarginLabel.Text" translate="yes" xml:space="preserve">
           <source>左方向の余白</source>
-          <target state="new">左方向の余白</target>
+          <target state="translated">Left Mergin</target>
         </trans-unit>
         <trans-unit id="PrintSettingPageCommand.Content" translate="yes" xml:space="preserve">
           <source>印刷設定</source>
-          <target state="new">印刷設定</target>
+          <target state="translated">Print Setting</target>
         </trans-unit>
         <trans-unit id="RightMarginLabel.Text" translate="yes" xml:space="preserve">
           <source>右方向の余白</source>
-          <target state="new">右方向の余白</target>
+          <target state="translated">Right Mergin</target>
         </trans-unit>
         <trans-unit id="TopMarginLabel.Text" translate="yes" xml:space="preserve">
           <source>上方向の余白</source>
-          <target state="new">上方向の余白</target>
+          <target state="translated">Top Mergin</target>
         </trans-unit>
         <trans-unit id="InchiLabel" translate="yes" xml:space="preserve">
           <source>※余白の単位はインチです</source>
-          <target state="new">※余白の単位はインチです</target>
+          <target state="translated">※Mergin uint is inch</target>
         </trans-unit>
         <trans-unit id="MetricLabel" translate="yes" xml:space="preserve">
           <source>※余白の単位はミリです</source>
-          <target state="new">※余白の単位はミリです</target>
+          <target state="translated">※Mergin uint is mm</target>
         </trans-unit>
         <trans-unit id="PurchaseButton.Content" translate="yes" xml:space="preserve">
           <source>購入する</source>
-          <target state="new">購入する</target>
+          <target state="translated">Buy</target>
         </trans-unit>
         <trans-unit id="AllDocumentsLabel.Content" translate="yes" xml:space="preserve">
           <source>全てのドキュメントを対象にする</source>
-          <target state="new">全てのドキュメントを対象にする</target>
+          <target state="translated">All document</target>
         </trans-unit>
         <trans-unit id="DiscardDocumentMessage" translate="yes" xml:space="preserve">
           <source>{0}を閉じますか</source>
-          <target state="new">{0}を閉じますか</target>
+          <target state="translated">Can you close {0}?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}は削除しないでください</note>
         </trans-unit>
         <trans-unit id="SupportButton.Content" translate="yes" xml:space="preserve">
           <source>ヘルプとサポート</source>
-          <target state="new">ヘルプとサポート</target>
+          <target state="translated">Help and support</target>
         </trans-unit>
         <trans-unit id="AboutPageCommand.Content" translate="yes" xml:space="preserve">
           <source>このアプリについて</source>
-          <target state="new">このアプリについて</target>
+          <target state="translated">About</target>
         </trans-unit>
         <trans-unit id="VersionText" translate="yes" xml:space="preserve">
           <source>バージョン {0}</source>
-          <target state="new">バージョン {0}</target>
+          <target state="translated">Version {0}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}は削除しないでください</note>
         </trans-unit>
         <trans-unit id="IndentBySpace.Header" translate="yes" xml:space="preserve">
           <source>スペースで字下げを行う</source>
-          <target state="new">スペースで字下げを行う</target>
+          <target state="translated">Indent by space</target>
         </trans-unit>
         <trans-unit id="EnableAutoIndent.Header" translate="yes" xml:space="preserve">
           <source>オートインデンドを有効にする</source>
-          <target state="new">オートインデンドを有効にする</target>
+          <target state="translated">Enable auto indent</target>
         </trans-unit>
         <trans-unit id="PrintButton.Text" translate="yes" xml:space="preserve">
           <source>印刷</source>
-          <target state="new">印刷</target>
+          <target state="translated">Print</target>
         </trans-unit>
         <trans-unit id="SettingButton.Text" translate="yes" xml:space="preserve">
           <source>設定</source>
-          <target state="new">設定</target>
+          <target state="translated">Setting</target>
         </trans-unit>
         <trans-unit id="EnableAutoComplete.Header" translate="yes" xml:space="preserve">
           <source>自動補完を有効にする</source>
-          <target state="new">自動補完を有効にする</target>
+          <target state="translated">Enable auto complete</target>
         </trans-unit>
         <trans-unit id="OutlineTree.Text" translate="yes" xml:space="preserve">
           <source>アウトラインツリー</source>
-          <target state="new">アウトラインツリー</target>
+          <target state="translated">Outline tree</target>
         </trans-unit>
         <trans-unit id="Snipeet.Text" translate="yes" xml:space="preserve">
           <source>スニペット</source>
-          <target state="new">スニペット</target>
+          <target state="translated">Snipeet</target>
         </trans-unit>
         <trans-unit id="RestoreUsareStateMessage" translate="yes" xml:space="preserve">
           <source>ドキュメントを復元しますか</source>
-          <target state="new">ドキュメントを復元しますか</target>
+          <target state="translated">Can you restore document?</target>
         </trans-unit>
         <trans-unit id="SaveAsButton.Text" translate="yes" xml:space="preserve">
           <source>名前を付けて保存する</source>
-          <target state="new">名前を付けて保存する</target>
+          <target state="translated">Save as</target>
         </trans-unit>
         <trans-unit id="NotifySaveCompleteText" translate="yes" xml:space="preserve">
           <source>{0}で保存しました</source>
-          <target state="new">{0}で保存しました</target>
+          <target state="translated">Save by {0}</target>
           <note from="MultilingualBuild" annotates="source" priority="2">{0}は削除しないでください</note>
         </trans-unit>
         <trans-unit id="DefaultEncodeTypeLabel.Text" translate="yes" xml:space="preserve">
           <source>デフォルトの文字コード</source>
-          <target state="new">デフォルトの文字コード</target>
+          <target state="translated">Default Encoding</target>
         </trans-unit>
         <trans-unit id="AddExtentionButton.Content" translate="yes" xml:space="preserve">
           <source>追加</source>
-          <target state="new">追加</target>
+          <target state="translated">Add</target>
         </trans-unit>
         <trans-unit id="EnableAutoSave.Header" translate="yes" xml:space="preserve">
           <source>一定間隔ごとに現在の状態を保存する</source>
-          <target state="new">一定間隔ごとに現在の状態を保存する</target>
+          <target state="translated">Auto save current state</target>
         </trans-unit>
         <trans-unit id="OpenAsEncodeButton.Text" translate="yes" xml:space="preserve">
           <source>文字コードでファイルを開く...</source>
-          <target state="new">文字コードでファイルを開く...</target>
+          <target state="translated">Open file by encoing...</target>
         </trans-unit>
         <trans-unit id="OpenAsEncodeDialog.Title" translate="yes" xml:space="preserve">
           <source>文字コードでファイルを開く</source>
-          <target state="new">文字コードでファイルを開く</target>
+          <target state="translated">Open file by encoding</target>
         </trans-unit>
         <trans-unit id="OpenAsEncodeDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>OK</source>
@@ -379,27 +379,27 @@
         </trans-unit>
         <trans-unit id="OpenAsEncodeDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>キャンセル</source>
-          <target state="new">キャンセル</target>
+          <target state="translated">Cancel</target>
         </trans-unit>
         <trans-unit id="OpenFromMRU.Text" translate="yes" xml:space="preserve">
           <source>最近開いたファイル...</source>
-          <target state="new">最近開いたファイル...</target>
+          <target state="translated">Recent File...</target>
         </trans-unit>
         <trans-unit id="OpenRecentlyDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>開く</source>
-          <target state="new">開く</target>
+          <target state="translated">Open</target>
         </trans-unit>
         <trans-unit id="OpenRecentlyDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>キャンセル</source>
-          <target state="new">キャンセル</target>
+          <target state="translated">Cancel</target>
         </trans-unit>
         <trans-unit id="OpenRecentlyDialog.Title" translate="yes" xml:space="preserve">
           <source>最近開いたファイル</source>
-          <target state="new">最近開いたファイル</target>
+          <target state="translated">Recent file</target>
         </trans-unit>
         <trans-unit id="SaveAsEncodeButton.Text" translate="yes" xml:space="preserve">
           <source>文字コードでファイルを保存する...</source>
-          <target state="new">文字コードでファイルを保存する...</target>
+          <target state="translated">Save as endoing...</target>
         </trans-unit>
         <trans-unit id="SaveAsEncodeDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>OK</source>
@@ -407,63 +407,63 @@
         </trans-unit>
         <trans-unit id="SaveAsEncodeDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>キャンセル</source>
-          <target state="new">キャンセル</target>
+          <target state="translated">Cancel</target>
         </trans-unit>
         <trans-unit id="SaveAsEncodeDialog.Title" translate="yes" xml:space="preserve">
           <source>文字コードでファイルを保存する</source>
-          <target state="new">文字コードでファイルを保存する</target>
+          <target state="translated">Save as encdoing</target>
         </trans-unit>
         <trans-unit id="OpenButton.Label" translate="yes" xml:space="preserve">
           <source>ファイルを開く</source>
-          <target state="new">ファイルを開く</target>
+          <target state="translated">Open file</target>
         </trans-unit>
         <trans-unit id="SaveButton.Text" translate="yes" xml:space="preserve">
           <source>保存</source>
-          <target state="new">保存</target>
+          <target state="translated">Save</target>
         </trans-unit>
         <trans-unit id="OpenConfigureFolder.Content" translate="yes" xml:space="preserve">
           <source>設定フォルダーを開く</source>
-          <target state="new">設定フォルダーを開く</target>
+          <target state="translated">Open setting floler</target>
         </trans-unit>
         <trans-unit id="ReopenConfirm" translate="yes" xml:space="preserve">
           <source>変更を有効にするには今までの変更を破棄し、再度ファイルを開く必要があります。続行しますか？</source>
-          <target state="new">変更を有効にするには今までの変更を破棄し、再度ファイルを開く必要があります。続行しますか？</target>
+          <target state="translated">You need to reopen and break changing to enable new setting. Are you contine?</target>
         </trans-unit>
         <trans-unit id="EnableGenerateFolding.Header" translate="yes" xml:space="preserve">
           <source>折り畳みを有効にする</source>
-          <target state="new">折り畳みを有効にする</target>
+          <target state="translated">Enable folding</target>
         </trans-unit>
         <trans-unit id="EnableSyntaxHilight.Header" translate="yes" xml:space="preserve">
           <source>シンタックスハイライトを有効にする</source>
-          <target state="new">シンタックスハイライトを有効にする</target>
+          <target state="translated">Enable syntax hilight</target>
         </trans-unit>
         <trans-unit id="CommentColorLabel.Text" translate="yes" xml:space="preserve">
           <source>コメント</source>
-          <target state="new">コメント</target>
+          <target state="translated">Commet</target>
         </trans-unit>
         <trans-unit id="ControlCharColorLabel.Text" translate="yes" xml:space="preserve">
           <source>コントロールコード</source>
-          <target state="new">コントロールコード</target>
+          <target state="translated">Control code</target>
         </trans-unit>
         <trans-unit id="Keyword2ColorLabel.Text" translate="yes" xml:space="preserve">
           <source>キーワード２</source>
-          <target state="new">キーワード２</target>
+          <target state="translated">Keyword 2</target>
         </trans-unit>
         <trans-unit id="KeywordColorLabel.Text" translate="yes" xml:space="preserve">
           <source>キーワード</source>
-          <target state="new">キーワード</target>
+          <target state="translated">Keyword</target>
         </trans-unit>
         <trans-unit id="LineMarkerColorLabel.Text" translate="yes" xml:space="preserve">
           <source>ラインマーカー</source>
-          <target state="new">ラインマーカー</target>
+          <target state="translated">Linemarker</target>
         </trans-unit>
         <trans-unit id="LiteralColorLabel.Text" translate="yes" xml:space="preserve">
           <source>リテラル</source>
-          <target state="new">リテラル</target>
+          <target state="translated">Literal</target>
         </trans-unit>
         <trans-unit id="UpdateAreaColorLabel.Text" translate="yes" xml:space="preserve">
           <source>更新エリア</source>
-          <target state="new">更新エリア</target>
+          <target state="translated">Update area</target>
         </trans-unit>
         <trans-unit id="URLColorLabel.Text" translate="yes" xml:space="preserve">
           <source>URL</source>
@@ -471,15 +471,15 @@
         </trans-unit>
         <trans-unit id="ForegroundColorLabel.Text" translate="yes" xml:space="preserve">
           <source>文字の色</source>
-          <target state="new">文字の色</target>
+          <target state="translated">Forground char color</target>
         </trans-unit>
         <trans-unit id="BackgroundColorLabel.Text" translate="yes" xml:space="preserve">
           <source>背景色</source>
-          <target state="new">背景色</target>
+          <target state="translated">Background color</target>
         </trans-unit>
         <trans-unit id="LineEmHeightLabel.Text" translate="yes" xml:space="preserve">
           <source>行間(%)</source>
-          <target state="new">行間(%)</target>
+          <target state="translated">Line height(%)</target>
         </trans-unit>
       </group>
     </body>
