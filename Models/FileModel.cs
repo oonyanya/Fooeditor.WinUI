@@ -19,12 +19,10 @@ namespace FooEditor
     {
 
         private StorageFile File;
-        private BasicProperties Prop;
 
-        private FileModel(StorageFile file, BasicProperties prop)
+        private FileModel(StorageFile file)
         {
             this.File = file;
-            this.Prop = prop;
         }
 
         public string Path
@@ -51,12 +49,10 @@ namespace FooEditor
             }
         }
 
-        public ulong Length
+        public async Task<ulong> GetLength()
         {
-            get
-            {
-                return this.Prop.Size;
-            }
+            var prop = await File.GetBasicPropertiesAsync();
+            return prop.Size;
         }
 
         public static string TrimFullPath(string filepath)
@@ -75,10 +71,9 @@ namespace FooEditor
                 return filepath;
         }
 
-        public static async Task<FileModel> GetFileModel(StorageFile file)
+        public static Task<FileModel> GetFileModel(StorageFile file)
         {
-            var prop = await file.GetBasicPropertiesAsync();
-            return new FileModel(file, prop);
+            return Task.FromResult(new FileModel(file));
         }
 
         public static async Task<FileModel> GetFileModel(FileModelBuildType type,string s)

@@ -102,7 +102,7 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </muxc:TabViewItem.HeaderTemplate>
-                            <cwuc:SwitchPresenter Value="{Binding DocumentModel.IsProgressNow,Mode=OneWay}">
+                            <cwuc:SwitchPresenter TargetType="x:Boolean" Value="{Binding DocumentModel.IsProgressNow,Mode=OneWay}">
                                 <cwuc:Case Value="True">
                                     <StackPanel Orientation="Horizontal" Padding="12">
                                         <StackPanel.Background>

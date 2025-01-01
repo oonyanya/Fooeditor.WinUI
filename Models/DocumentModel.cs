@@ -171,7 +171,7 @@ namespace FooEditor.WinUI.Models
             this.Document.InsertMode = true;
             this.Document.Update += (s, e) => {
                 this.hasUnAutoSavedDocument = true;
-                this.IsDirty = true;
+                //this.IsDirty = true;
                 this.lastUpdatedTickCount = DateTime.Now.Ticks;
             };
             this.Document.AutoIndentHook += (s, e) =>
@@ -312,7 +312,8 @@ namespace FooEditor.WinUI.Models
             using (var stream = await file.GetReadStreamAsync())
             using (var sr = new StreamReader(stream, enc))
             {
-                await this.Document.LoadAsync(sr, null, (int)file.Length);
+                var file_length = await file.GetLength();
+                await this.Document.LoadAsync(sr, null, (int)file_length);
             }
 
             this.IsDirty = false;
