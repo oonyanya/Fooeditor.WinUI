@@ -136,6 +136,7 @@ namespace FooEditor.WinUI.Models
                 _FileTypeCollection = new ObservableCollection<FileType>();
                 FileType fileType = new FileType(TextType, "");
                 fileType.ExtensionCollection.Add(".txt");
+                fileType.ExtensionCollection.Add(".log");
                 _FileTypeCollection.Add(fileType);
                 fileType = new FileType("C", "clang.xml");
                 fileType.ExtensionCollection.Add(".c");
