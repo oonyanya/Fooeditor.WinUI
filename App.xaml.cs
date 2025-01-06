@@ -49,7 +49,8 @@ namespace FooEditor.WinUI
                 var filepaths = from file in fileargs.Files
                                 select file.Path;
                 ObjectToXmlConverter conv = new ObjectToXmlConverter();
-                var param = conv.Convert(filepaths, typeof(string[]), null, null);
+                //配列で渡さないとシリアライズできない
+                var param = conv.Convert(filepaths.ToArray(), typeof(string[]), null, null);
                 await m_window.Init(param, false, null);
             }
             else
