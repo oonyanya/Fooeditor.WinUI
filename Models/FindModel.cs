@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using CommunityToolkit.WinUI.Controls;
 using FooEditEngine;
 
 namespace FooEditor.WinUI.Models
@@ -121,8 +122,13 @@ namespace FooEditor.WinUI.Models
         /// <returns>イテレーター</returns>
         protected virtual IEnumerable<Document> GetTextBoxs()
         {
-            foreach (var docvm in this.DocumentCollection)
-                yield return docvm.DocumentModel.Document;
+            if (this.AllDocuments)
+            {
+                foreach (var docvm in this.DocumentCollection)
+                    yield return docvm.DocumentModel.Document;
+            }else {
+                yield return this.DocumentCollection.Current.DocumentModel.Document;
+            }
         }
 
         /// <summary>
