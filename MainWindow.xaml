@@ -79,7 +79,11 @@
                             <KeyboardAccelerator Modifiers="Control" Key="H"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem >
-                    <MenuFlyoutItem Name="GoToButton" x:Uid="GoToButton" Command="{x:Bind ViewModel.OpenGoToCommand}" />
+                    <MenuFlyoutItem Name="GoToButton" x:Uid="GoToButton" Command="{x:Bind ViewModel.OpenGoToCommand}">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="G"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
                     <MenuFlyoutItem x:Uid="PropertyButton" Command="{x:Bind ViewModel.OpenDocumentInfoCommand}"/>
                     <MenuFlyoutItem Icon="List" x:Uid="OutlineTree" Command="{x:Bind ViewModel.OpenOutlineCommand}" />
                     <MenuFlyoutItem x:Uid="Snipeet" Command="{x:Bind ViewModel.OpenSnipeetCommand}">

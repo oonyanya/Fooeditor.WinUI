@@ -54,7 +54,7 @@ namespace FooEditor.WinUI.ViewModels
         {
             get
             {
-                return DocumentCollection.Instance.Current.DocumentModel.Document.LayoutLines.Count;
+                return DocumentCollection.Instance.Current.DocumentModel.Document.TotalLineCount;
             }
         }
 
