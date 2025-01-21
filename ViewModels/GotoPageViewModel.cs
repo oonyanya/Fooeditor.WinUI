@@ -18,6 +18,7 @@ using Windows.UI.Xaml;
 using Windows.Graphics.Printing;
 using Windows.System.Threading;
 using CommunityToolkit.Mvvm.Input;
+using Windows.AI.MachineLearning.Preview;
 
 namespace FooEditor.WinUI.ViewModels
 {
@@ -62,7 +63,7 @@ namespace FooEditor.WinUI.ViewModels
         {
             get
             {
-                return new RelayCommand<object>((s) =>
+                return new RelayCommand<object>(async (s) =>
                 {
                     var newPostion = new FooEditEngine.TextPoint();
                     newPostion.row = this.ToRow - 1;
@@ -73,8 +74,19 @@ namespace FooEditor.WinUI.ViewModels
                         this.Result = string.Format(loader.GetString("LineNumberOutOutOfRange"), 1, this.MaxRow);
                         return;
                     }
-                    DocumentCollection.Instance.Current.DocumentModel.Document.CaretPostion = newPostion;
-                    DocumentCollection.Instance.Current.DocumentModel.Document.RequestRedraw();
+                    var documentModel = DocumentCollection.Instance.Current.DocumentModel;
+                    var document = documentModel.Document;
+                    documentModel.IsProgressNow = true;
+                    try
+                    {
+                        await document.LayoutLines.FetchLineAsync(newPostion.row).ConfigureAwait(true);
+                        document.CaretPostion = newPostion;
+                        document.RequestRedraw();
+                    }
+                    finally
+                    {
+                        documentModel.IsProgressNow = false;
+                    }
                 });
             }
         }

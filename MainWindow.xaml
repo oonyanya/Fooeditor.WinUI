@@ -114,7 +114,7 @@
                                         </muxc:ContentPresenter.Background>
                                         <StackPanel Orientation="Horizontal" Padding="12">
                                             <ProgressRing IsActive="True" Margin="0,0,12,0"/>
-                                            <TextBlock Text="Loading now..." VerticalAlignment="Center" Foreground="White"/>
+                                            <TextBlock Text="Progress now..." VerticalAlignment="Center" Foreground="White"/>
                                         </StackPanel>
                                     </muxc:ContentPresenter>
                                 </cwuc:Case>

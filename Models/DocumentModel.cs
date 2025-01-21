@@ -170,9 +170,12 @@ namespace FooEditor.WinUI.Models
             this.Document = new Document();
             this.Document.InsertMode = true;
             this.Document.Update += (s, e) => {
-                this.hasUnAutoSavedDocument = true;
-                this.IsDirty = true;
-                this.lastUpdatedTickCount = DateTime.Now.Ticks;
+                if(e.type == UpdateType.Replace || e.type == UpdateType.Clear)
+                {
+                    this.hasUnAutoSavedDocument = true;
+                    this.IsDirty = true;
+                    this.lastUpdatedTickCount = DateTime.Now.Ticks;
+                }
             };
             this.Document.AutoIndentHook += (s, e) =>
             {
