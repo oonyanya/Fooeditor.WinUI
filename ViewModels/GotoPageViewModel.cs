@@ -63,7 +63,7 @@ namespace FooEditor.WinUI.ViewModels
         {
             get
             {
-                return new RelayCommand<object>(async (s) =>
+                return new RelayCommand<object>((s) =>
                 {
                     var newPostion = new FooEditEngine.TextPoint();
                     newPostion.row = this.ToRow - 1;
@@ -79,7 +79,7 @@ namespace FooEditor.WinUI.ViewModels
                     documentModel.IsProgressNow = true;
                     try
                     {
-                        await document.LayoutLines.FetchLineAsync(newPostion.row).ConfigureAwait(true);
+                        document.LayoutLines.FetchLine(newPostion.row);
                         document.CaretPostion = newPostion;
                         document.RequestRedraw();
                     }
