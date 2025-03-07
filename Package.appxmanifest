@@ -9,7 +9,7 @@
   <Identity
     Name="51377FooProject.404123402F54A"
     Publisher="CN=224662AF-5ED0-4C7C-8B20-13E2E5ECF61F"
-    Version="1.26.8.0" />
+    Version="1.26.10.0" />
 
   <Properties>
     <DisplayName>FOOEDITOR</DisplayName>
