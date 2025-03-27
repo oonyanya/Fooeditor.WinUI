@@ -346,6 +346,8 @@ namespace FooEditor.WinUI.ViewModels
             }
             savePicker.FileTypeChoices.Add("Current File Type", currentFileTypes);
 
+            savePicker.SuggestedSaveFile = suggestFile;
+
             ObservableCollection<FileType> collection = AppSettings.Current.FileTypeCollection;
             foreach (FileType type in collection)
             {
