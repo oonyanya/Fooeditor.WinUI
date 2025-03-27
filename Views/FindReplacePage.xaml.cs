@@ -25,6 +25,12 @@ namespace FooEditor.WinUI.Views
         public FindReplacePage()
         {
             this.InitializeComponent();
+            this.Loaded += FindReplacePage_Loaded;
+        }
+
+        private void FindReplacePage_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
+        {
+            this.FindPartternInputUI.Focus(Microsoft.UI.Xaml.FocusState.Keyboard);
         }
     }
 }
