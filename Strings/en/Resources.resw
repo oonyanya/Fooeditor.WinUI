@@ -361,4 +361,7 @@
   <data name="LineEmHeightLabel.Text" xml:space="preserve">
     <value>Line height(%)</value>
   </data>
+  <data name="AllowMultiInstance.Header" xml:space="preserve">
+    <value>Allow multi window</value>
+  </data>
 </root>

@@ -117,6 +117,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("LineMarkerColor", Microsoft.UI.Colors.Gray.ToHex());
             if(GetGlobalEditorProperty("LineEmHeight") == null)
                 SetGlobalEditorProperty("LineEmHeight", 1.5);
+            if (GetGlobalEditorProperty("AllowMultiInstance") == null)
+                SetGlobalEditorProperty("AllowMultiInstance", true);
         }
 
         public const string TextType = "Text";

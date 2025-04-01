@@ -481,6 +481,10 @@
           <source>行間(%)</source>
           <target state="translated">Line height(%)</target>
         </trans-unit>
+        <trans-unit id="AllowMultiInstance.Header" translate="yes" xml:space="preserve">
+          <source>同時起動を許可する</source>
+          <target state="translated">Allow multi window</target>
+        </trans-unit>
       </group>
     </body>
   </file>

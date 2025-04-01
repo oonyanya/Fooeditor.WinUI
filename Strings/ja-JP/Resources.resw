@@ -475,4 +475,7 @@
   <data name="LineEmHeightLabel.Text" xml:space="preserve">
     <value>行間(%)</value>
   </data>
+  <data name="AllowMultiInstance.Header" xml:space="preserve">
+    <value>同時起動を許可する</value>
+  </data>
 </root>

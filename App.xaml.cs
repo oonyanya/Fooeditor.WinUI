@@ -7,6 +7,7 @@ using FooEditor.WinUI.Models;
 using System;
 using Microsoft.Windows.AppLifecycle;
 using Windows.ApplicationModel.Activation;
+using CommunityToolkit.WinUI;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -40,6 +41,14 @@ namespace FooEditor.WinUI
         {
             var activatedEventArgs = AppInstance.GetCurrent().GetActivatedEventArgs();
 
+            var mainInstance = Microsoft.Windows.AppLifecycle.AppInstance.FindOrRegisterForKey("fooeditor.main");
+            mainInstance.Activated += MainInstance_Activated;
+            if (!mainInstance.IsCurrent && !AppSettings.Current.AllowMultiInstance)
+            {
+                await mainInstance.RedirectActivationToAsync(activatedEventArgs);
+                System.Diagnostics.Process.GetCurrentProcess().Kill();
+                return;
+            }
 
             m_window = new MainWindow();
             m_window.SetRootFrame(new Frame());
@@ -95,6 +104,26 @@ namespace FooEditor.WinUI
             }
 
             m_window.Activate();
+        }
+
+        private void MainInstance_Activated(object sender, AppActivationArguments e)
+        {
+            var activatedEventArgs = e;
+            if (activatedEventArgs.Kind == ExtendedActivationKind.File)
+            {
+                var fileargs = activatedEventArgs.Data as FileActivatedEventArgs;
+                var filepaths = from file in fileargs.Files
+                                select file.Path;
+                ObjectToXmlConverter conv = new ObjectToXmlConverter();
+                //配列で渡さないとシリアライズできない
+                var param = conv.Convert(filepaths.ToArray(), typeof(string[]), null, null);
+                if(m_window != null)
+                {
+                    m_window.DispatcherQueue.TryEnqueue(Microsoft.UI.Dispatching.DispatcherQueuePriority.Normal,() => {
+                        m_window.OpenFromArgs(param);
+                    });
+                }
+            }
         }
 
         private MainWindow m_window;
