@@ -340,13 +340,14 @@ namespace FooEditor.WinUI.ViewModels
             }
             else
             {
-                savePicker.SuggestedSaveFile = suggestFile;
                 //現在開いているファイルの拡張子を追加すると未知の拡張子でもファイルダイアログに表示される
                 currentFileTypes.Add(suggestFile.Extension);
             }
             savePicker.FileTypeChoices.Add("Current File Type", currentFileTypes);
 
-            savePicker.SuggestedSaveFile = suggestFile;
+            //ファイルタイプを追加した後じゃないとちょうどいい場所を提案してくれない
+            if(suggestFile != null)
+                savePicker.SuggestedSaveFile = suggestFile;
 
             ObservableCollection<FileType> collection = AppSettings.Current.FileTypeCollection;
             foreach (FileType type in collection)
