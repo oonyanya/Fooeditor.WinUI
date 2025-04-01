@@ -97,11 +97,11 @@
                           CanDrag="False" CanDragTabs="False" CanReorderTabs="False">
                 <muxc:TabView.TabItemTemplate>
                     <DataTemplate>
-                        <muxc:TabViewItem CloseRequested="TabViewItem_CloseRequested" ToolTipService.ToolTip="{Binding DocumentModel.CurrentFilePath}">
+                        <muxc:TabViewItem CloseRequested="TabViewItem_CloseRequested">
                             <muxc:TabViewItem.HeaderTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal"  >
-                                        <TextBlock Text="{Binding DocumentModel.Title}" TextAlignment="Center" Margin="10,7,0,4"/>
+                                        <TextBlock Text="{Binding DocumentModel.Title}" TextAlignment="Center" Margin="10,7,0,4"  ToolTipService.ToolTip="{Binding DocumentModel.CurrentFilePath}" ToolTipService.Placement="Right"/>
                                         <Ellipse Fill="Black" Width="7" Height="7" Margin="5,0,0,0" Visibility="{Binding DocumentModel.IsDirty,Converter={StaticResource BooleanToVisibilityConverter}}"/>
                                     </StackPanel>
                                 </DataTemplate>
