@@ -158,5 +158,10 @@ namespace FooEditor.WinUI
             MainPageViewModel vm = this.RootPanel.DataContext as MainPageViewModel;
             vm.RemoveDocumentCommand.Execute(args.Item);
         }
+
+        private void RefreshMenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel?.DocumentList?.Current?.DocumentModel?.Document?.RequestRedraw();
+        }
     }
 }

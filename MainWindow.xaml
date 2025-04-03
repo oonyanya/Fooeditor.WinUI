@@ -90,6 +90,8 @@
                     </MenuFlyoutItem>
                     <MenuFlyoutItem Icon="Setting" x:Uid="SettingButton" Command="{x:Bind ViewModel.OpenSettingPageCommand}">
                     </MenuFlyoutItem>
+                    <MenuFlyoutItem x:Uid="Refresh" Click="RefreshMenuItem_Click">
+                    </MenuFlyoutItem>
                 </muxc:MenuBarItem>
             </muxc:MenuBar>
             <muxc:TabView x:Name="DocumentList" Grid.Row="1" TabItemsSource="{x:Bind ViewModel.DocumentList}" SelectedItem="{Binding CurrentDocument,Mode=TwoWay}"

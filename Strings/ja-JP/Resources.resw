@@ -478,4 +478,7 @@
   <data name="AllowMultiInstance.Header" xml:space="preserve">
     <value>同時起動を許可する</value>
   </data>
+  <data name="Refresh.Text" xml:space="preserve">
+    <value>再描写する</value>
+  </data>
 </root>
