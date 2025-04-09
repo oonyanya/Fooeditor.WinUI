@@ -481,4 +481,7 @@
   <data name="Refresh.Text" xml:space="preserve">
     <value>再描写する</value>
   </data>
+  <data name="SaveByAdminButton.Text" xml:space="preserve">
+    <value>管理者権限で保存する</value>
+  </data>
 </root>

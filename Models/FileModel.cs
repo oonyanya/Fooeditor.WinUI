@@ -114,6 +114,13 @@ namespace FooEditor
             return await GetFileModel(file);
         }
 
+        public static async Task<FileModel> CreateTempFile(string name)
+        {
+            CreationCollisionOption coll_opt = CreationCollisionOption.ReplaceExisting;
+            var file = await ApplicationData.Current.TemporaryFolder.CreateFileAsync(name,coll_opt );
+            return await GetFileModel(file);
+        }
+
         public async Task<Stream> GetReadStreamAsync()
         {
             return await this.File.OpenStreamForReadAsync();

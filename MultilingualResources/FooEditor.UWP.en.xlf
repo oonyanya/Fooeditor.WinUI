@@ -489,6 +489,10 @@
           <source>再描写する</source>
           <target state="new">Redraw text</target>
         </trans-unit>
+        <trans-unit id="SaveByAdminButton.Text" translate="yes" xml:space="preserve">
+          <source>管理者権限で保存する</source>
+          <target state="new">管理者権限で保存する</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -82,6 +82,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\AdminOperation\AdminOperation.csproj" />
     <ProjectReference Include="..\Common\EncodeDetect\EncodeDetect.csproj" />
   </ItemGroup>
   <ItemGroup>

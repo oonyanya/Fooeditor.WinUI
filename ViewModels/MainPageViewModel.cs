@@ -11,6 +11,8 @@ using Windows.Storage;
 using Windows.Storage.AccessCache;
 using Windows.Storage.Pickers;
 using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using System.ComponentModel;
 
 namespace FooEditor.WinUI.ViewModels
 {
@@ -303,6 +305,50 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
+        public RelayCommand<object> SaveByAdministraotrCommand
+        {
+            get
+            {
+                return new RelayCommand<object>(async (s) => {
+                    var fileModel = await ShowSaveFileDialog(null);
+                    if (fileModel == null)
+                        return;
+                    this.timer.Stop();
+
+                    string temp_file_path = Path.GetTempFileName();
+                    var tempFileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, temp_file_path);
+                    await this._doc_list.Current.DocumentModel.SaveFile(tempFileModel, null);
+                    string newSaveFileName = fileModel.Name;
+                    _doc_list.Current.DocumentModel.CurrentFilePath = fileModel.Path;
+                    _doc_list.Current.DocumentModel.Title = newSaveFileName;
+
+                    AdminiOperation operation = new AdminiOperation();
+                    operation.ExecutablePath = AppDomain.CurrentDomain.BaseDirectory;
+                    operation.WriteCode(string.Format("copy\t{0}\t{1}", temp_file_path, fileModel.Path));
+
+                    try
+                    {
+                        operation.Execute();
+
+                        var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+                        StorageApplicationPermissions.MostRecentlyUsedList.Add(fileModel, newSaveFileName);
+                        var str = string.Format(loader.GetString("NotifySaveCompleteText"), newSaveFileName);
+                        this.StatusMessage = str;
+                        this.IsRequierDelayCleanStatusMessage = true;
+                    }
+                    catch (Win32Exception ex)  //UACのキャンセル時に発生するので
+                    {
+                        if (ex.NativeErrorCode != 1223)
+                            throw;
+                    }
+                    finally
+                    {
+                        this.timer.Start();
+                    }
+                });
+            }
+        }
+
         public RelayCommand<System.Text.Encoding> SaveAsCommand
         {
             get
@@ -328,7 +374,7 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        private async Task SaveAs(FileModel suggestFile, System.Text.Encoding enc = null)
+        private async Task<StorageFile> ShowSaveFileDialog(FileModel suggestFile)
         {
             FileSavePicker savePicker = this.MainViewService.GetFileSavePicker();
 
@@ -346,7 +392,7 @@ namespace FooEditor.WinUI.ViewModels
             savePicker.FileTypeChoices.Add("Current File Type", currentFileTypes);
 
             //ファイルタイプを追加した後じゃないとちょうどいい場所を提案してくれない
-            if(suggestFile != null)
+            if (suggestFile != null)
                 savePicker.SuggestedSaveFile = suggestFile;
 
             ObservableCollection<FileType> collection = AppSettings.Current.FileTypeCollection;
@@ -356,6 +402,13 @@ namespace FooEditor.WinUI.ViewModels
             }
 
             StorageFile file = await savePicker.PickSaveFileAsync();
+
+            return file;
+        }
+
+        private async Task SaveAs(FileModel suggestFile, System.Text.Encoding enc = null)
+        {
+            var file = await ShowSaveFileDialog(suggestFile);
             if (file != null)
             {
                 FileModel fileModel = await FileModel.GetFileModel(file);
