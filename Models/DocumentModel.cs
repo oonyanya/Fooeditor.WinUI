@@ -340,18 +340,36 @@ namespace FooEditor.WinUI.Models
             this.IsDirty = false;
         }
 
-        public async Task SaveFile(FileModel file,Encoding enc = null)
+        public async Task SaveFile(FileModel file,Encoding enc = null,bool asadmin = false)
         {
             try
             {
                 this.IsProgressNow = true;
-                this.IsProgressNow = true;
-                using (var stream = await file.GetWriteStreamAsync())
-                using (var sw = new StreamWriter(stream, enc == null ? this.Encode : enc))
+                if(asadmin)
                 {
-                    stream.SetLength(0);    //ゴミが残るのを回避する
-                    sw.NewLine = LineFeedHelper.ToString(this.LineFeed);
-                    await this.Document.SaveAsync(sw);
+                    string temp_file_path = Path.GetTempFileName();
+                    var tempFileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, temp_file_path);
+                    using (var stream = await tempFileModel.GetWriteStreamAsync())
+                    using (var sw = new StreamWriter(stream, enc == null ? this.Encode : enc))
+                    {
+                        stream.SetLength(0);    //ゴミが残るのを回避する
+                        sw.NewLine = LineFeedHelper.ToString(this.LineFeed);
+                        await this.Document.SaveAsync(sw);
+                    }
+                    AdminiOperation operation = new AdminiOperation();
+                    operation.ExecutablePath = AppDomain.CurrentDomain.BaseDirectory;
+                    operation.WriteCode(string.Format("copy\t{0}\t{1}", temp_file_path, file.Path));
+                    operation.Execute();
+                }
+                else
+                {
+                    using (var stream = await file.GetWriteStreamAsync())
+                    using (var sw = new StreamWriter(stream, enc == null ? this.Encode : enc))
+                    {
+                        stream.SetLength(0);    //ゴミが残るのを回避する
+                        sw.NewLine = LineFeedHelper.ToString(this.LineFeed);
+                        await this.Document.SaveAsync(sw);
+                    }
                 }
                 this.CurrentFilePath = file.Path;
                 this.Title = file.Name;

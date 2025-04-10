@@ -55,7 +55,6 @@
                     </MenuFlyoutItem>
                     <MenuFlyoutItem x:Uid="SaveAsButton" Command="{x:Bind ViewModel.SaveAsCommand}"/>
                     <MenuFlyoutItem x:Uid="SaveAsEncodeButton" Click="SaveAsEncodeButton_Click"/>
-                    <MenuFlyoutItem x:Uid="SaveByAdminButton" Command="{x:Bind ViewModel.SaveByAdministraotrCommand}"/>
                     <MenuFlyoutItem Command="{x:Bind ViewModel.PrintCommand}" x:Uid="PrintButton"/>
                 </muxc:MenuBarItem>
                 <muxc:MenuBarItem Title="Edit">

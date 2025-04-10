@@ -280,9 +280,11 @@ namespace FooEditor.WinUI.ViewModels
                         await SaveAs(null);
                         return;
                     }
+                    FileModel fileModel = null;
+                    var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
                     try
                     {
-                        var fileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, this._doc_list.Current.DocumentModel.CurrentFilePath);
+                        fileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, this._doc_list.Current.DocumentModel.CurrentFilePath);
                         if (fileModel != null)
                         {
                             if (fileModel.IsNeedUserActionToSave())
@@ -290,10 +292,25 @@ namespace FooEditor.WinUI.ViewModels
                             else
                             {
                                 await this._doc_list.Current.DocumentModel.SaveFile(fileModel, null);
-                                var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
                                 var str = string.Format(loader.GetString("NotifySaveCompleteText"), fileModel.Name);
                                 this.StatusMessage = str;
                                 this.IsRequierDelayCleanStatusMessage = true;
+                            }
+                        }
+                    }
+                    catch(UnauthorizedAccessException)
+                    {
+                        bool result = await this.MainViewService.Confirm(loader.GetString("UnauthorizedAccessMessage"), loader.GetString("YesButton"), loader.GetString("NoButton"));
+                        if (result && fileModel != null)
+                        {
+                            try
+                            {
+                                await this._doc_list.Current.DocumentModel.SaveFile(fileModel, null, true);
+                            }
+                            catch (Win32Exception win32ex)  //UACのキャンセル時に発生するので
+                            {
+                                if (win32ex.NativeErrorCode != 1223)
+                                    throw;
                             }
                         }
                     }
@@ -305,55 +322,13 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        public RelayCommand<object> SaveByAdministraotrCommand
-        {
-            get
-            {
-                return new RelayCommand<object>(async (s) => {
-                    var fileModel = await ShowSaveFileDialog(null);
-                    if (fileModel == null)
-                        return;
-                    this.timer.Stop();
-
-                    string temp_file_path = Path.GetTempFileName();
-                    var tempFileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, temp_file_path);
-                    await this._doc_list.Current.DocumentModel.SaveFile(tempFileModel, null);
-                    string newSaveFileName = fileModel.Name;
-                    _doc_list.Current.DocumentModel.CurrentFilePath = fileModel.Path;
-                    _doc_list.Current.DocumentModel.Title = newSaveFileName;
-
-                    AdminiOperation operation = new AdminiOperation();
-                    operation.ExecutablePath = AppDomain.CurrentDomain.BaseDirectory;
-                    operation.WriteCode(string.Format("copy\t{0}\t{1}", temp_file_path, fileModel.Path));
-
-                    try
-                    {
-                        operation.Execute();
-
-                        var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
-                        StorageApplicationPermissions.MostRecentlyUsedList.Add(fileModel, newSaveFileName);
-                        var str = string.Format(loader.GetString("NotifySaveCompleteText"), newSaveFileName);
-                        this.StatusMessage = str;
-                        this.IsRequierDelayCleanStatusMessage = true;
-                    }
-                    catch (Win32Exception ex)  //UACのキャンセル時に発生するので
-                    {
-                        if (ex.NativeErrorCode != 1223)
-                            throw;
-                    }
-                    finally
-                    {
-                        this.timer.Start();
-                    }
-                });
-            }
-        }
-
         public RelayCommand<System.Text.Encoding> SaveAsCommand
         {
             get
             {
                 return new RelayCommand<System.Text.Encoding>(async (enc) => {
+                    FileModel fileModel = null;
+                    var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
                     try
                     {
                         if (this._doc_list.Current.DocumentModel.CurrentFilePath == null)
@@ -362,10 +337,13 @@ namespace FooEditor.WinUI.ViewModels
                         }
                         else
                         {
-                            var fileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, this._doc_list.Current.DocumentModel.CurrentFilePath);
+                            fileModel = await FileModel.GetFileModel(FileModelBuildType.AbsolutePath, this._doc_list.Current.DocumentModel.CurrentFilePath);
                             await SaveAs(fileModel, enc);
                         }
                     }
+                    /*
+                     * ファイルダイアログで保存しようとしても管理者権限がないと保存ボタンが押せないので、UnauthorizedAccessException時のことは考えなくていい
+                    */
                     catch (Exception ex)
                     {
                         await this.MainViewService.MakeMessageBox(ex.Message);
