@@ -485,10 +485,6 @@
           <source>同時起動を許可する</source>
           <target state="translated">Allow multi window</target>
         </trans-unit>
-        <trans-unit id="Refresh.Text" translate="yes" xml:space="preserve">
-          <source>再描写する</source>
-          <target state="new">Redraw text</target>
-        </trans-unit>
         <trans-unit id="UnauthorizedAccessMessage" translate="yes" xml:space="preserve">
           <source>保存するには管理者権限が必要です。管理者権限で保存しますか？</source>
           <target state="new">It need administator to save file. Could you save as administrator?</target>

@@ -159,9 +159,5 @@ namespace FooEditor.WinUI
             vm.RemoveDocumentCommand.Execute(args.Item);
         }
 
-        private void RefreshMenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            ViewModel?.DocumentList?.Current?.DocumentModel?.Document?.RequestRedraw();
-        }
     }
 }
