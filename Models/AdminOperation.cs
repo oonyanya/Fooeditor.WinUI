@@ -61,7 +61,7 @@ namespace FooEditor.WinUI.Models
             sw.Close();
 
             if (!File.Exists(AdminCopyPath))
-                throw new InvalidOperationException();
+                return false;
 
             ProcessStartInfo info = new ProcessStartInfo();
             info.Arguments = this.scriptPath;

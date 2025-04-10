@@ -359,7 +359,11 @@ namespace FooEditor.WinUI.Models
                     AdminiOperation operation = new AdminiOperation();
                     operation.ExecutablePath = AppDomain.CurrentDomain.BaseDirectory;
                     operation.WriteCode(string.Format("copy\t{0}\t{1}", temp_file_path, file.Path));
-                    operation.Execute();
+                    bool result = operation.Execute();
+                    if (!result)
+                    {
+                        throw new TaskCanceledException();
+                    }
                 }
                 else
                 {

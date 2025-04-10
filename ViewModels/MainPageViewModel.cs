@@ -307,6 +307,10 @@ namespace FooEditor.WinUI.ViewModels
                             {
                                 await this._doc_list.Current.DocumentModel.SaveFile(fileModel, null, true);
                             }
+                            catch(TaskCanceledException)
+                            {
+                                await this.MainViewService.MakeMessageBox(loader.GetString("SaveAsAdminFailedMessage"));
+                            }
                             catch (Win32Exception win32ex)  //UACのキャンセル時に発生するので
                             {
                                 if (win32ex.NativeErrorCode != 1223)

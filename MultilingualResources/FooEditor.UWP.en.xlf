@@ -491,7 +491,11 @@
         </trans-unit>
         <trans-unit id="UnauthorizedAccessMessage" translate="yes" xml:space="preserve">
           <source>保存するには管理者権限が必要です。管理者権限で保存しますか？</source>
-          <target state="new">保存するには管理者権限が必要です。管理者権限で保存しますか？</target>
+          <target state="new">It need administator to save file. Could you save as administrator?</target>
+        </trans-unit>
+        <trans-unit id="SaveAsAdminFailedMessage" translate="yes" xml:space="preserve">
+          <source>管理者権限で保存できませんでした。当該機能をインストールしていない可能性があります。</source>
+          <target state="new">It is faild to save as administorator. This feature might be not installed.</target>
         </trans-unit>
       </group>
     </body>
