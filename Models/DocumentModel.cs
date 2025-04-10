@@ -357,7 +357,7 @@ namespace FooEditor.WinUI.Models
                         await this.Document.SaveAsync(sw);
                     }
                     AdminiOperation operation = new AdminiOperation();
-                    operation.ExecutablePath = AppDomain.CurrentDomain.BaseDirectory;
+                    operation.ExecutablePath = Windows.ApplicationModel.Package.Current.InstalledPath;
                     operation.WriteCode(string.Format("copy\t{0}\t{1}", temp_file_path, file.Path));
                     bool result = operation.Execute();
                     if (!result)
