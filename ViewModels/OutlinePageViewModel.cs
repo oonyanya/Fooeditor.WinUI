@@ -84,7 +84,7 @@ namespace FooEditor.WinUI.ViewModels
 
                     OutlineTreeItem treeitem = s;
                     this.SetToClipboard(treeitem);
-                    this.Document.Remove(treeitem.Start, treeitem.End - treeitem.Start + 1);
+                    this.Document.Replace(treeitem.Start, treeitem.End - treeitem.Start + 1, string.Empty);
                     this.Document.RequestRedraw();
 
                     this.Items = OutlineAnalyzer.Analyze(this.FoldingStrategy, this.Document.LayoutLines, this.Document);

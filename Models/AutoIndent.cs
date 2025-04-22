@@ -44,7 +44,7 @@ namespace FooEditor
 
             if (temp.Length > 0)
             {
-                int index = doc.LayoutLines.GetIndexFromTextPoint(cur);
+                long index = doc.LayoutLines.GetLongIndexFromTextPoint(cur);
                 doc.Insert(index, temp.ToString());
             }
         }

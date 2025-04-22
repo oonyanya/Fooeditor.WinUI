@@ -8,7 +8,7 @@ namespace FooEditor.WinUI.Models
         /// <summary>
         /// コンストラクター
         /// </summary>
-        public OutlineTreeItem(int start, int end, int level, string header)
+        public OutlineTreeItem(long start, long end, int level, string header)
         {
             this.Start = start;
             this.End = end;
@@ -19,7 +19,7 @@ namespace FooEditor.WinUI.Models
         /// <summary>
         /// 開始インデックス
         /// </summary>
-        public int Start
+        public long Start
         {
             get;
             private set;
@@ -27,7 +27,7 @@ namespace FooEditor.WinUI.Models
         /// <summary>
         /// 終了インデックス
         /// </summary>
-        public int End
+        public long End
         {
             get;
             private set;
