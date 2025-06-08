@@ -31,7 +31,7 @@ namespace FooEditor.WinUI.Models
 
             string insertText = this.GetParsedSnipped(this.Data, docModel.Encode, tabNum);
 
-            int caretIndex = doc.LayoutLines.GetIndexFromTextPoint(docModel.Document.CaretPostion);
+            long caretIndex = doc.LayoutLines.GetLongIndexFromTextPoint(docModel.Document.CaretPostion);
             doc.Insert(caretIndex, insertText.ToString());
             doc.RequestRedraw();
         }

@@ -57,8 +57,8 @@ namespace FooEditor.WinUI.Models
 
             var doc = e.textbox;
             //キャレットは入力された文字の後ろにあるので、一致する分だけ選択して置き換える
-            int caretIndex = doc.LayoutLines.GetIndexFromTextPoint(e.textbox.CaretPostion);
-            int start = caretIndex - inputing_word.Length;
+            long caretIndex = doc.LayoutLines.GetLongIndexFromTextPoint(e.textbox.CaretPostion);
+            long start = caretIndex - inputing_word.Length;
             if (start < 0)
                 start = 0;
             doc.Replace(start, inputing_word.Length, word);
@@ -70,8 +70,8 @@ namespace FooEditor.WinUI.Models
             AutoCompleteBoxBase box = (AutoCompleteBoxBase)sender;
 
             var doc = e.textbox;
-            int caretIndex = doc.LayoutLines.GetIndexFromTextPoint(e.textbox.CaretPostion);
-            int inputingIndex = caretIndex - 1;
+            long caretIndex = doc.LayoutLines.GetLongIndexFromTextPoint(e.textbox.CaretPostion);
+            long inputingIndex = caretIndex - 1;
             if (inputingIndex < 0)
                 inputingIndex = 0;
 
@@ -100,7 +100,7 @@ namespace FooEditor.WinUI.Models
             }
         }
 
-        static bool IsInputedTag(Document doc, int index, out string tag)
+        static bool IsInputedTag(Document doc, long index, out string tag)
         {
             bool hasSpace = false;
             StringBuilder word = new StringBuilder();
@@ -111,7 +111,7 @@ namespace FooEditor.WinUI.Models
                 return false;
             }
 
-            for (int i = index; i >= 0; i--)
+            for (long i = index; i >= 0; i--)
             {
                 if (doc[i] == ' ')
                 {
