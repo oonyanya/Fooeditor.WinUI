@@ -364,4 +364,14 @@
   <data name="AllowMultiInstance.Header" xml:space="preserve">
     <value>Allow multi window</value>
   </data>
+  <data name="UseDocumentWithWorkfile.Header" xml:space="preserve">
+    <value>Use workfile when edit file or text(*)</value>
+  </data>
+  <data name="RemarksRequireReboot.Text" xml:space="preserve">
+    <value>*Requrie rebbot to enabled
+</value>
+  </data>
+  <data name="DoHilight.Text" xml:space="preserve">
+    <value>Run syntax hilighter</value>
+  </data>
 </root>

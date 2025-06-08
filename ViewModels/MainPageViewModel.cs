@@ -172,6 +172,16 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
+        public RelayCommand<object> DoHilightCommand
+        {
+            get
+            {
+                return new RelayCommand<object>((s) => {
+                    this.CurrentDocument.DocumentModel.Document.LayoutLines.HilightAll();
+                });
+            }
+        }
+
         public RelayCommand<object> AddDocumentCommand
         {
             get

@@ -50,6 +50,7 @@
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.EnableAutoSave,Mode=TwoWay}" x:Uid="EnableAutoSave" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.EnableSyntaxHilight,Mode=TwoWay}" x:Uid="EnableSyntaxHilight" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.EnableGenerateFolding,Mode=TwoWay}" x:Uid="EnableGenerateFolding" HorizontalAlignment="Stretch"/>
+            <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.UseDocumentWithWorkfile,Mode=TwoWay}" x:Uid="UseDocumentWithWorkfile" HorizontalAlignment="Stretch"/>
             <TextBlock x:Uid="LineBreakLabel" Margin="0,0,0,10"/>
             <ComboBox Name="LineBreakMethodCollection" ItemsSource="{Binding LineBreakMethodList}" SelectedItem="{Binding Setting.LineBreakMethod,Mode=TwoWay}" Margin="0,0,0,20">
                 <ComboBox.ItemTemplate>
@@ -89,6 +90,7 @@
             <TextBlock x:Uid="LineMarkerColorLabel" Margin="0,0,0,10"/>
             <cwuc:ColorPickerButton SelectedColor="{Binding Setting.LineMarkerColor,Mode=TwoWay}" Style="{StaticResource ColorPickerStyle}" Margin="0,0,0,20"/>
             <Button x:Uid="OpenConfigureFolder" Command="{Binding OpenConfigureFolderCommand}" Margin="0,10,0,0"/>
+            <TextBlock x:Uid="RemarksRequireReboot" Margin="0,10,0,0"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

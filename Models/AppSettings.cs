@@ -119,6 +119,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("LineEmHeight", 1.5);
             if (GetGlobalEditorProperty("AllowMultiInstance") == null)
                 SetGlobalEditorProperty("AllowMultiInstance", true);
+            if (GetGlobalEditorProperty("UseDocumentWithWorkfile") == null)
+                SetGlobalEditorProperty("UseDocumentWithWorkfile", false);
         }
 
         public const string TextType = "Text";

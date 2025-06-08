@@ -493,6 +493,19 @@
           <source>管理者権限で保存できませんでした。当該機能をインストールしていない可能性があります。</source>
           <target state="new">It is faild to save as administorator. This feature might be not installed.</target>
         </trans-unit>
+        <trans-unit id="UseDocumentWithWorkfile.Header" translate="yes" xml:space="preserve">
+          <source>編集時にワークファイルを使用する(*)</source>
+          <target state="translated">Use workfile when edit file or text(*)</target>
+        </trans-unit>
+        <trans-unit id="RemarksRequireReboot.Text" translate="yes" xml:space="preserve">
+          <source>*有効にするには再起動する必要があります</source>
+          <target state="translated">*Requrie rebbot to enabled
+</target>
+        </trans-unit>
+        <trans-unit id="DoHilight.Text" translate="yes" xml:space="preserve">
+          <source>シンタックスハイライトを実行する</source>
+          <target state="translated">Run syntax hilighter</target>
+        </trans-unit>
       </group>
     </body>
   </file>

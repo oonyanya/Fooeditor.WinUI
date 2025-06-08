@@ -484,4 +484,13 @@
   <data name="AddButton.Text" xml:space="preserve">
     <value>新規作成</value>
   </data>
+  <data name="UseDocumentWithWorkfile.Header" xml:space="preserve">
+    <value>編集時にワークファイルを使用する(*)</value>
+  </data>
+  <data name="RemarksRequireReboot.Text" xml:space="preserve">
+    <value>*有効にするには再起動する必要があります</value>
+  </data>
+  <data name="DoHilight.Text" xml:space="preserve">
+    <value>シンタックスハイライトを実行する</value>
+  </data>
 </root>

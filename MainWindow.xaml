@@ -41,6 +41,11 @@
             </Grid.RowDefinitions>
             <muxc:MenuBar Grid.Row="0">
                 <muxc:MenuBarItem Title="File">
+                    <MenuFlyoutItem  Icon="Add" Command="{x:Bind ViewModel.AddDocumentCommand}" x:Uid="AddButton">
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem >
                     <MenuFlyoutItem x:Uid="OpenLocalButton" Command="{x:Bind ViewModel.OpenFileCommand}" Icon="OpenFile">
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="O"/>
@@ -58,11 +63,6 @@
                     <MenuFlyoutItem Command="{x:Bind ViewModel.PrintCommand}" x:Uid="PrintButton"/>
                 </muxc:MenuBarItem>
                 <muxc:MenuBarItem Title="Edit">
-                    <MenuFlyoutItem  Icon="Add" Command="{x:Bind ViewModel.AddDocumentCommand}" x:Uid="AddButton">
-                        <MenuFlyoutItem.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control" Key="N"/>
-                        </MenuFlyoutItem.KeyboardAccelerators>
-                    </MenuFlyoutItem >
                     <MenuFlyoutItem  Icon="Undo" Command="{x:Bind ViewModel.UndoCommand}" x:Uid="UndoButton">
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control" Key="Z"/>
@@ -88,6 +88,9 @@
                     <MenuFlyoutItem Icon="List" x:Uid="OutlineTree" Command="{x:Bind ViewModel.OpenOutlineCommand}" />
                     <MenuFlyoutItem x:Uid="Snipeet" Command="{x:Bind ViewModel.OpenSnipeetCommand}">
                     </MenuFlyoutItem>
+                    <MenuFlyoutItem x:Uid="DoHilight" Command="{x:Bind ViewModel.DoHilightCommand}">
+                    </MenuFlyoutItem>
+                    <MenuFlyoutSeparator/>
                     <MenuFlyoutItem Icon="Setting" x:Uid="SettingButton" Command="{x:Bind ViewModel.OpenSettingPageCommand}">
                     </MenuFlyoutItem>
                 </muxc:MenuBarItem>

@@ -33,6 +33,7 @@ namespace FooEditor.WinUI.Models
 
     public class DocumentModel : ObservableObject
     {
+        const int CACHESIZE = 256;
         string _CurrentFilePath;
         public string CurrentFilePath
         {
@@ -167,7 +168,14 @@ namespace FooEditor.WinUI.Models
 
         public DocumentModel()
         {
-            this.Document = new Document();
+            if(AppSettings.Current.UseDocumentWithWorkfile)
+            {
+                this.Document = new Document(CACHESIZE);
+            }
+            else
+            {
+                this.Document = new Document();
+            }
             this.Document.InsertMode = true;
             this.Document.Update += (s, e) => {
                 if(e.type == UpdateType.Replace || e.type == UpdateType.Clear)
