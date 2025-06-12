@@ -25,7 +25,7 @@
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
     <VersionPrefix>-alpha</VersionPrefix>
-    <Version>1.26.14$(VersionPrefix)</Version>
+    <Version>1.26.15$(VersionPrefix)</Version>
     <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
@@ -51,7 +51,7 @@
     <MultilingualFallbackLanguage>ja-JP</MultilingualFallbackLanguage>
     <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
-    <PackageCertificateThumbprint>407C052B973AC872EF7B3796CA51B9CBED0670D1</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>E46B53A628678CD6C51DB769A1B14BCFCF1415EB</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MultilingualResources\FooEditor.UWP.en.xlf" />
