@@ -231,8 +231,8 @@ namespace FooEditor.WinUI.Models
             Encoding.GetEncoding("us-ascii"),
             Encoding.GetEncoding("euc-jp"),
             Encoding.GetEncoding("shift_jis"),
-            new EncodeDetect.UTF8WithoutBom(),
-            new EncodeDetect.UTF8WithBom(),
+            new FooEditor.UTF8WithoutBom(),
+            new FooEditor.UTF8WithBom(),
         };
     }
 

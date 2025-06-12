@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Linq;
-using EncodeDetect;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Pickers;

@@ -3,7 +3,6 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Data;
 using FooEditEngine;
 using Windows.ApplicationModel.Resources;
-using EncodeDetect;
 using System.IO;
 using System.Runtime.Serialization;
 using Microsoft.UI.Xaml.Media;

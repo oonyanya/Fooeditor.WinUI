@@ -1,5 +1,4 @@
-﻿using EncodeDetect;
-using FooEditor.WinUI.Models;
+﻿using FooEditor.WinUI.Models;
 using FooEditor.WinUI.Services;
 using System.Collections.ObjectModel;
 using System.Text;

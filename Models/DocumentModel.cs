@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using FooEditEngine;
 using FooEditEngine.WinUI;
-using EncodeDetect;
 using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace FooEditor.WinUI.Models
