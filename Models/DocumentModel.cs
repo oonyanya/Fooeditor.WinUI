@@ -169,7 +169,11 @@ namespace FooEditor.WinUI.Models
         {
             if(AppSettings.Current.UseDocumentWithWorkfile)
             {
-                this.Document = new Document(CACHESIZE);
+                var workfilepath = AppSettings.Current.WorkfilePath;
+                if (string.IsNullOrEmpty(workfilepath) && Path.Exists(workfilepath) == false)
+                    this.Document = new Document(CACHESIZE);
+                else
+                    this.Document = new Document(null, workfilepath, CACHESIZE);
             }
             else
             {

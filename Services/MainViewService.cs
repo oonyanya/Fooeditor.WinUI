@@ -1,16 +1,17 @@
-﻿using FooEditor.WinUI.Models;
-using FooEditor.WinUI.Views;
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using FooEditor.WinUI.Models;
+using FooEditor.WinUI.Views;
+using Microsoft.UI.Xaml.Controls;
 using Microsoft.Windows.AppNotifications;
-using Windows.Storage.Pickers;
+using Microsoft.Windows.AppNotifications.Builder;
 using Windows​.Data​.Xml​.Dom;
+using Windows.Graphics.Printing;
+using Windows.Storage.Pickers;
 using Windows.UI.Notifications;
 using Windows.UI.Popups;
 using WinRT.Interop;
-using Windows.Graphics.Printing;
-using System.Collections.Generic;
-using Microsoft.Windows.AppNotifications.Builder;
 
 namespace FooEditor.WinUI.Services
 {
@@ -27,6 +28,7 @@ namespace FooEditor.WinUI.Services
         void MakeNotifaction(string text);
         FileOpenPicker GetFileOpenPicker();
         FileSavePicker GetFileSavePicker();
+        FolderPicker GetFolderPicker();
         PrintManager GetPrintManager();
         Task ShowPrintDialogAsync();
     }
@@ -79,6 +81,14 @@ namespace FooEditor.WinUI.Services
             var filepicker = new FileSavePicker();
             InitializeWithWindow.Initialize(filepicker, WindowNative.GetWindowHandle(this.MainPage));
             return filepicker;
+        }
+
+        public FolderPicker GetFolderPicker()
+        {
+            FolderPicker folderPicker = new FolderPicker();
+            InitializeWithWindow.Initialize(folderPicker, WindowNative.GetWindowHandle(this.MainPage));
+            return folderPicker;
+
         }
 
         public PrintManager GetPrintManager()

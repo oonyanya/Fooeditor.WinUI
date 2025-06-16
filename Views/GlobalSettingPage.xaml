@@ -51,6 +51,11 @@
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.EnableSyntaxHilight,Mode=TwoWay}" x:Uid="EnableSyntaxHilight" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.EnableGenerateFolding,Mode=TwoWay}" x:Uid="EnableGenerateFolding" HorizontalAlignment="Stretch"/>
             <ToggleSwitch Margin="0,0,0,20" IsOn="{Binding Setting.UseDocumentWithWorkfile,Mode=TwoWay}" x:Uid="UseDocumentWithWorkfile" HorizontalAlignment="Stretch"/>
+            <TextBlock x:Uid="WorkfileLabel" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,20">
+                <TextBox Text="{Binding Setting.WorkfilePath,Mode=TwoWay}" Margin="0,0,0,10"/>
+                <Button x:Uid="OpenWorkfilePathPickerButton" Command="{Binding OpenWorkfilePathPickerCommand}" Margin="0,0,0,10"/>
+            </StackPanel>
             <TextBlock x:Uid="LineBreakLabel" Margin="0,0,0,10"/>
             <ComboBox Name="LineBreakMethodCollection" ItemsSource="{Binding LineBreakMethodList}" SelectedItem="{Binding Setting.LineBreakMethod,Mode=TwoWay}" Margin="0,0,0,20">
                 <ComboBox.ItemTemplate>

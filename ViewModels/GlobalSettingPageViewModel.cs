@@ -4,11 +4,35 @@ using FooEditor.WinUI.Models;
 using FooEditEngine;
 using System;
 using CommunityToolkit.Mvvm.Input;
+using Windows.Storage.Pickers;
+using FooEditor.WinUI.Services;
 
 namespace FooEditor.WinUI.ViewModels
 {
     class GlobalSettingPageViewModel : ViewModelBase
     {
+        IMainViewService MainViewService;
+
+        public GlobalSettingPageViewModel(IMainViewService mainViewService)
+        {
+            this.MainViewService = mainViewService;
+        }
+
+        public ICommand OpenWorkfilePathPickerCommand
+        {
+            get
+            {
+                return new RelayCommand<object>(async (e) =>
+                {
+                    FolderPicker folderPicker = this.MainViewService.GetFolderPicker();
+                    folderPicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.Desktop;
+                    folderPicker.FileTypeFilter.Add("*");
+                    var folder = await folderPicker.PickSingleFolderAsync();
+                    if(folder != null)
+                        AppSettings.Current.WorkfilePath = folder.Path;
+                });
+            }
+        }
 
         public ICommand OpenConfigureFolderCommand
         {

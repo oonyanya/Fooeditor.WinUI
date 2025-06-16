@@ -506,6 +506,14 @@
           <source>シンタックスハイライトを実行する</source>
           <target state="translated">Run syntax hilighter</target>
         </trans-unit>
+        <trans-unit id="WorkfileLabel.Text" translate="yes" xml:space="preserve">
+          <source>一時ファイル用キャッシュフォルダー(*)</source>
+          <target state="new">一時ファイル用キャッシュフォルダー(*)</target>
+        </trans-unit>
+        <trans-unit id="OpenWorkfilePathPickerButton.Content" translate="yes" xml:space="preserve">
+          <source>参照</source>
+          <target state="new">参照</target>
+        </trans-unit>
       </group>
     </body>
   </file>

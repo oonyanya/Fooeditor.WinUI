@@ -32,6 +32,10 @@ namespace FooEditor.WinUI
                 {
                     return new DocumentInfoPageViewModel(mainViewService);
                 }
+                if (e.TargetViewMode == typeof(GlobalSettingPageViewModel))
+                {
+                    return new GlobalSettingPageViewModel(mainViewService);
+                }
                 return null;
             };
             this.ViewModel = new MainPageViewModel(navigationService, mainViewService);

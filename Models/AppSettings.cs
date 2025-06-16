@@ -121,6 +121,8 @@ namespace FooEditor.WinUI.Models
                 SetGlobalEditorProperty("AllowMultiInstance", true);
             if (GetGlobalEditorProperty("UseDocumentWithWorkfile") == null)
                 SetGlobalEditorProperty("UseDocumentWithWorkfile", false);
+            if (GetGlobalEditorProperty("WorkfilePath") == null)
+                SetGlobalEditorProperty("WorkfilePath", string.Empty);
         }
 
         public const string TextType = "Text";

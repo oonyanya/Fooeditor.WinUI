@@ -493,4 +493,10 @@
   <data name="DoHilight.Text" xml:space="preserve">
     <value>シンタックスハイライトを実行する</value>
   </data>
+  <data name="WorkfileLabel.Text" xml:space="preserve">
+    <value>一時ファイル用キャッシュフォルダー(*)</value>
+  </data>
+  <data name="OpenWorkfilePathPickerButton.Content" xml:space="preserve">
+    <value>参照</value>
+  </data>
 </root>
