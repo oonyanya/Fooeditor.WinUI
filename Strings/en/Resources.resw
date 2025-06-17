@@ -289,6 +289,9 @@
   <data name="OpenAsEncodeDialog.Title" xml:space="preserve">
     <value>Open file by encoding</value>
   </data>
+  <data name="OpenAsEncodeDialog.PrimaryButtonText" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="OpenAsEncodeDialog.SecondaryButtonText" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -306,6 +309,9 @@
   </data>
   <data name="SaveAsEncodeButton.Text" xml:space="preserve">
     <value>Save as endoing...</value>
+  </data>
+  <data name="SaveAsEncodeDialog.PrimaryButtonText" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="SaveAsEncodeDialog.SecondaryButtonText" xml:space="preserve">
     <value>Cancel</value>
@@ -352,6 +358,9 @@
   <data name="UpdateAreaColorLabel.Text" xml:space="preserve">
     <value>Update area</value>
   </data>
+  <data name="URLColorLabel.Text" xml:space="preserve">
+    <value>URL</value>
+  </data>
   <data name="ForegroundColorLabel.Text" xml:space="preserve">
     <value>Forground char color</value>
   </data>
@@ -364,14 +373,25 @@
   <data name="AllowMultiInstance.Header" xml:space="preserve">
     <value>Allow multi window</value>
   </data>
+  <data name="UnauthorizedAccessMessage" xml:space="preserve">
+    <value>It need administator to save file. Could you save as administrator?</value>
+  </data>
+  <data name="SaveAsAdminFailedMessage" xml:space="preserve">
+    <value>It is faild to save as administorator. This feature might be not installed.</value>
+  </data>
   <data name="UseDocumentWithWorkfile.Header" xml:space="preserve">
     <value>Use workfile when edit file or text(*)</value>
   </data>
   <data name="RemarksRequireReboot.Text" xml:space="preserve">
-    <value>*Requrie rebbot to enabled
-</value>
+    <value>*Requrie rebbot to enabled</value>
   </data>
   <data name="DoHilight.Text" xml:space="preserve">
     <value>Run syntax hilighter</value>
+  </data>
+  <data name="WorkfileLabel.Text" xml:space="preserve">
+    <value>Cache folder for temporary file(*)</value>
+  </data>
+  <data name="OpenWorkfilePathPickerButton.Content" xml:space="preserve">
+    <value>Browse</value>
   </data>
 </root>

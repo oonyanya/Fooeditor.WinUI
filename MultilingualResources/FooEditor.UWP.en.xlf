@@ -375,7 +375,7 @@
         </trans-unit>
         <trans-unit id="OpenAsEncodeDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>OK</source>
-          <target state="new">OK</target>
+          <target state="translated">OK</target>
         </trans-unit>
         <trans-unit id="OpenAsEncodeDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>キャンセル</source>
@@ -403,7 +403,7 @@
         </trans-unit>
         <trans-unit id="SaveAsEncodeDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>OK</source>
-          <target state="new">OK</target>
+          <target state="translated">OK</target>
         </trans-unit>
         <trans-unit id="SaveAsEncodeDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>キャンセル</source>
@@ -467,7 +467,7 @@
         </trans-unit>
         <trans-unit id="URLColorLabel.Text" translate="yes" xml:space="preserve">
           <source>URL</source>
-          <target state="new">URL</target>
+          <target state="translated">URL</target>
         </trans-unit>
         <trans-unit id="ForegroundColorLabel.Text" translate="yes" xml:space="preserve">
           <source>文字の色</source>
@@ -487,11 +487,11 @@
         </trans-unit>
         <trans-unit id="UnauthorizedAccessMessage" translate="yes" xml:space="preserve">
           <source>保存するには管理者権限が必要です。管理者権限で保存しますか？</source>
-          <target state="new">It need administator to save file. Could you save as administrator?</target>
+          <target state="translated">It need administator to save file. Could you save as administrator?</target>
         </trans-unit>
         <trans-unit id="SaveAsAdminFailedMessage" translate="yes" xml:space="preserve">
           <source>管理者権限で保存できませんでした。当該機能をインストールしていない可能性があります。</source>
-          <target state="new">It is faild to save as administorator. This feature might be not installed.</target>
+          <target state="translated">It is faild to save as administorator. This feature might be not installed.</target>
         </trans-unit>
         <trans-unit id="UseDocumentWithWorkfile.Header" translate="yes" xml:space="preserve">
           <source>編集時にワークファイルを使用する(*)</source>
@@ -499,8 +499,7 @@
         </trans-unit>
         <trans-unit id="RemarksRequireReboot.Text" translate="yes" xml:space="preserve">
           <source>*有効にするには再起動する必要があります</source>
-          <target state="translated">*Requrie rebbot to enabled
-</target>
+          <target state="translated">*Requrie rebbot to enabled</target>
         </trans-unit>
         <trans-unit id="DoHilight.Text" translate="yes" xml:space="preserve">
           <source>シンタックスハイライトを実行する</source>
@@ -508,11 +507,11 @@
         </trans-unit>
         <trans-unit id="WorkfileLabel.Text" translate="yes" xml:space="preserve">
           <source>一時ファイル用キャッシュフォルダー(*)</source>
-          <target state="new">一時ファイル用キャッシュフォルダー(*)</target>
+          <target state="translated">Cache folder for temporary file(*)</target>
         </trans-unit>
         <trans-unit id="OpenWorkfilePathPickerButton.Content" translate="yes" xml:space="preserve">
           <source>参照</source>
-          <target state="new">参照</target>
+          <target state="translated">Browse</target>
         </trans-unit>
       </group>
     </body>
