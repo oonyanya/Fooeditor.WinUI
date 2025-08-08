@@ -51,7 +51,7 @@
     <MultilingualFallbackLanguage>ja-JP</MultilingualFallbackLanguage>
     <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
-    <PackageCertificateThumbprint>E46B53A628678CD6C51DB769A1B14BCFCF1415EB</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>3B34AA454F937FBB43991A535B17CCFE50A525EE</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MultilingualResources\FooEditor.UWP.en.xlf" />
