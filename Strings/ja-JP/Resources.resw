@@ -499,4 +499,7 @@
   <data name="OpenWorkfilePathPickerButton.Content" xml:space="preserve">
     <value>参照</value>
   </data>
+  <data name="NotSupportedMessage" xml:space="preserve">
+    <value>この操作はサポートされていません</value>
+  </data>
 </root>

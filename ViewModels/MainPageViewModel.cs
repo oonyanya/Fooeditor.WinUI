@@ -321,6 +321,10 @@ namespace FooEditor.WinUI.ViewModels
                             {
                                 await this.MainViewService.MakeMessageBox(loader.GetString("SaveAsAdminFailedMessage"));
                             }
+                            catch (PlatformNotSupportedException)
+                            {
+                                await this.MainViewService.MakeMessageBox(loader.GetString("NotSupportedMessage"));
+                            }
                             catch (Win32Exception win32ex)  //UACのキャンセル時に発生するので
                             {
                                 if (win32ex.NativeErrorCode != 1223)

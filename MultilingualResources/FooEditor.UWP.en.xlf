@@ -513,6 +513,10 @@
           <source>参照</source>
           <target state="translated">Browse</target>
         </trans-unit>
+        <trans-unit id="NotSupportedMessage" translate="yes" xml:space="preserve">
+          <source>この操作はサポートされていません</source>
+          <target state="translated">Not supported</target>
+        </trans-unit>
       </group>
     </body>
   </file>

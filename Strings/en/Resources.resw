@@ -394,4 +394,7 @@
   <data name="OpenWorkfilePathPickerButton.Content" xml:space="preserve">
     <value>Browse</value>
   </data>
+  <data name="NotSupportedMessage" xml:space="preserve">
+    <value>Not supported</value>
+  </data>
 </root>
