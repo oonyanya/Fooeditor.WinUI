@@ -171,7 +171,7 @@ namespace FooEditor.WinUI.Models
             {
                 var workfilepath = AppSettings.Current.WorkfilePath;
                 if (string.IsNullOrEmpty(workfilepath) && Path.Exists(workfilepath) == false)
-                    this.Document = new Document(CACHESIZE);
+                    this.Document = new Document(cache_size:CACHESIZE);
                 else
                     this.Document = new Document(null, workfilepath, CACHESIZE);
             }
@@ -327,7 +327,7 @@ namespace FooEditor.WinUI.Models
             using (var sr = new StreamReader(stream, enc))
             {
                 var file_length = await file.GetLength();
-                await this.Document.LoadAsync(sr, null, (int)file_length);
+                await this.Document.LoadAsync(sr.BaseStream, enc);
             }
 
             this.IsDirty = false;
@@ -346,7 +346,7 @@ namespace FooEditor.WinUI.Models
             using (var stream = await currentFile.GetReadStreamAsync())
             using (var sr = new StreamReader(stream, enc))
             {
-                await this.Document.LoadAsync(sr);
+                await this.Document.LoadAsync(sr.BaseStream,enc);
             }
             this.IsDirty = false;
         }

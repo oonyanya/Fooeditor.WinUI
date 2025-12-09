@@ -24,7 +24,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <VersionPrefix>-alpha</VersionPrefix>
+    <VersionPrefix>-alpha2</VersionPrefix>
     <Version>1.26.16$(VersionPrefix)</Version>
     <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
   </PropertyGroup>
@@ -51,9 +51,10 @@
     <MultilingualFallbackLanguage>ja-JP</MultilingualFallbackLanguage>
     <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
     <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
-    <PackageCertificateThumbprint>3B34AA454F937FBB43991A535B17CCFE50A525EE</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>A747480A2AD70C10663AA3084EED15F41D99E59C</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="FooEditor.WinUI_TemporaryKey.pfx" />
     <None Remove="MultilingualResources\FooEditor.UWP.en.xlf" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +72,9 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.250402" />
     <PackageReference Include="CommunityToolkit.WinUI.Helpers" Version="8.2.250402" />
     <PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.250402" />
-    <PackageReference Include="FooEditEngine.WinUI" Version="1.2.9" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.7.250606001" />
-    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.4948" />
+    <PackageReference Include="FooEditEngine.WinUI" Version="1.2.10-aplha2" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.251106002" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7175" />
     <Manifest Include="$(ApplicationManifest)" />
   </ItemGroup>
   <!-- Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging

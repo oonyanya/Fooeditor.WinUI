@@ -29,14 +29,14 @@ namespace FooEditor.WinUI.Models
             string lineString = doc.LayoutLines[lineNumber];
             int tabNum = lineString.Count((c) => { return c == '\t'; });
 
-            string insertText = this.GetParsedSnipped(this.Data, docModel.Encode, tabNum);
+            string insertText = this.GetParsedSnipped(this.Data, docModel.Encode, tabNum,docModel.Document);
 
             long caretIndex = doc.LayoutLines.GetLongIndexFromTextPoint(docModel.Document.CaretPostion);
             doc.Insert(caretIndex, insertText.ToString());
             doc.RequestRedraw();
         }
 
-        public string GetParsedSnipped(string data,Encoding enc,int tabNum)
+        string GetParsedSnipped(string data,Encoding enc,int tabNum,Document doc)
         {
             //インテンドの数を計算する
             StringBuilder tabs = new StringBuilder();
@@ -51,7 +51,7 @@ namespace FooEditor.WinUI.Models
                 string[] oldValues = new string[] { "${encode}", "\\t", "\\i" };
                 string[] newValues = new string[] { enc.WebName, "\t", i == 0 ? "" : tabs.ToString() };  //最初の行はインデンド済みなので空文字を返す
                 insertText.Append(Util.Replace(snipetLines[i], oldValues, newValues));
-                insertText.Append(Document.NewLine);
+                insertText.Append(doc.NewLine);
             }
 
             return insertText.ToString();

@@ -75,7 +75,7 @@ namespace FooEditor.WinUI.Models
             foreach (OutlineItem item in foldingMethod.AnalyzeDocument(doc, 0, doc.Length - 1))
             {
                 int row = layoutlineCollection.GetLineNumberFromIndex(item.Start);
-                string header = layoutlineCollection[row].Trim(new char[] { ' ', '\t', '.', Document.NewLine });
+                string header = FooEditEngine.Util.TrimLineFeed(layoutlineCollection[row]).Trim(new char[] { ' ', '\t', '.' });
                 OutlineTreeItem newItem = new OutlineTreeItem(item.Start,item.End,item.Level,header);
                 if (level == -1 || level < item.Level)
                 {
