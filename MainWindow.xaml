@@ -51,6 +51,8 @@
                             <KeyboardAccelerator Modifiers="Control" Key="O"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
+                    <MenuFlyoutItem x:Uid="OpenLocalWithFileMappingButton" Command="{x:Bind ViewModel.OpenFileCommandWithFileMapping}" Icon="OpenFile">
+                    </MenuFlyoutItem>
                     <MenuFlyoutItem x:Uid="OpenFromMRU" Click="OpenFromMRU_Click" />
                     <MenuFlyoutItem x:Uid="OpenAsEncodeButton" Click="OpenAsEncodeButton_Click"/>
                     <MenuFlyoutItem x:Uid="SaveLocalButton" Command="{x:Bind ViewModel.SaveCommand}" Icon="Save">

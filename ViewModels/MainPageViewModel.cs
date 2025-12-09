@@ -27,6 +27,13 @@ namespace FooEditor.WinUI.ViewModels
             this.DocumentList = DocumentCollection.Instance;
             this.NavigationService = navigationService;
             this.MainViewService = mainViewService;
+            AppSettings.Current.ChangedSetting += (s, e) =>
+            {
+                for(int i = 0; i< this.DocumentList.Count; i++)
+                {
+                    this.DocumentList[i].DocumentModel.ApplyCurrentSetting();
+                }
+            };
         }
 
         public const string KeywordFolderName = "Keywords";
@@ -228,6 +235,36 @@ namespace FooEditor.WinUI.ViewModels
                             await this._doc_list.AddFromFile(file, s);
                         }
                     }catch(Exception ex)
+                    {
+                        await this.MainViewService.MakeMessageBox(ex.Message);
+                    }
+                });
+            }
+        }
+
+        public RelayCommand<System.Text.Encoding> OpenFileCommandWithFileMapping
+        {
+            get
+            {
+                return new RelayCommand<System.Text.Encoding>(async (s) => {
+                    try
+                    {
+                        FileOpenPicker openPicker = this.MainViewService.GetFileOpenPicker();
+
+                        openPicker.ViewMode = PickerViewMode.List;
+
+                        openPicker.FileTypeFilter.Add("*");
+
+                        openPicker.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+
+                        StorageFile file = await openPicker.PickSingleFileAsync();
+
+                        if (file != null)
+                        {
+                            await this._doc_list.AddFromFile(file, s, true);
+                        }
+                    }
+                    catch (Exception ex)
                     {
                         await this.MainViewService.MakeMessageBox(ex.Message);
                     }

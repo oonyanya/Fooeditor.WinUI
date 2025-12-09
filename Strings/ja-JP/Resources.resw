@@ -502,4 +502,10 @@
   <data name="NotSupportedMessage" xml:space="preserve">
     <value>この操作はサポートされていません</value>
   </data>
+  <data name="FileMappingModePrefix" xml:space="preserve">
+    <value>ファイルマッピングモード - </value>
+  </data>
+  <data name="OpenLocalWithFileMappingButton.Text" xml:space="preserve">
+    <value>メモリーマップドファイルとしてファイルを開く</value>
+  </data>
 </root>

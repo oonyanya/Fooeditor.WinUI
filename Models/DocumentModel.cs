@@ -30,10 +30,11 @@ namespace FooEditor.WinUI.Models
         }
     }
 
-    public class DocumentModel : ObservableObject
+    public class DocumentModel : ObservableObject,IDisposable
     {
         const int CACHESIZE = 256;
         string _CurrentFilePath;
+        Stream _CurrentFileMappingStream;
         public string CurrentFilePath
         {
             get
@@ -165,19 +166,27 @@ namespace FooEditor.WinUI.Models
             private set;
         }
 
-        public DocumentModel()
+        public bool useFileMapping
+        {
+            get;
+            private set;
+        }
+
+        public DocumentModel(bool useFileMapping = false)
         {
             if(AppSettings.Current.UseDocumentWithWorkfile)
             {
                 var workfilepath = AppSettings.Current.WorkfilePath;
                 if (string.IsNullOrEmpty(workfilepath) && Path.Exists(workfilepath) == false)
-                    this.Document = new Document(cache_size:CACHESIZE);
+                    this.Document = new Document(cache_size:CACHESIZE, use_file_mapping:useFileMapping, mapping_cache_size:CACHESIZE);
                 else
-                    this.Document = new Document(null, workfilepath, CACHESIZE);
+                    this.Document = new Document(null, workfilepath, CACHESIZE,useFileMapping,CACHESIZE);
+                this.useFileMapping = useFileMapping;
             }
             else
             {
-                this.Document = new Document();
+                this.Document = new Document(use_file_mapping: useFileMapping, mapping_cache_size: CACHESIZE);
+                this.useFileMapping = useFileMapping;
             }
             this.Document.InsertMode = true;
             this.Document.Update += (s, e) => {
@@ -203,6 +212,7 @@ namespace FooEditor.WinUI.Models
         public event EventHandler<DocumentTypeEventArg> DocumentTypeChanged;
 
         AutoIndent autoIndent = new AutoIndent();
+        private bool disposedValue;
 
         public async Task SetDocumentType(FileType type)
         {
@@ -323,11 +333,19 @@ namespace FooEditor.WinUI.Models
 
             await this.SetDocumentType(GetFileType(file.Name));
 
-            using (var stream = await file.GetReadStreamAsync())
-            using (var sr = new StreamReader(stream, enc))
+            if (useFileMapping)
             {
-                var file_length = await file.GetLength();
-                await this.Document.LoadAsync(sr.BaseStream, enc);
+                var stream = await file.GetReadStreamAsync();
+                await this.Document.LoadAsync(stream, enc);
+                this._CurrentFileMappingStream = stream;
+            }
+            else
+            {
+                using (var stream = await file.GetReadStreamAsync())
+                using (var sr = new StreamReader(stream, enc))
+                {
+                    await this.Document.LoadAsync(sr.BaseStream, enc);
+                }
             }
 
             this.IsDirty = false;
@@ -353,6 +371,12 @@ namespace FooEditor.WinUI.Models
 
         public async Task SaveFile(FileModel file,Encoding enc = null,bool asadmin = false)
         {
+            if(this.useFileMapping && this.CurrentFilePath == file.Path)
+            {
+                //TODO:ローカライズしないといけない
+                throw new InvalidOperationException("Can't overwrite when file mapping");
+            }
+
             try
             {
                 this.IsProgressNow = true;
@@ -419,7 +443,7 @@ namespace FooEditor.WinUI.Models
 
         public async Task SaveCurrentFile()
         {
-            if (!hasUnAutoSavedDocument)
+            if (!hasUnAutoSavedDocument || useFileMapping)
                 return;
             FileModel file = await FileModel.CreateFileModel(stateFileName, true);
             using (var stream = await file.GetWriteStreamAsync())
@@ -558,6 +582,41 @@ namespace FooEditor.WinUI.Models
             }
 
             writer.WriteEndElement();
+        }
+
+        protected void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    if (this._CurrentFileMappingStream != null)
+                    {
+                        this._CurrentFileMappingStream.Close();
+                        this._CurrentFileMappingStream = null;
+                    }
+                    this.Document.Dispose();
+                    this.Document = null;
+                }
+
+                // TODO: アンマネージド リソース (アンマネージド オブジェクト) を解放し、ファイナライザーをオーバーライドします
+                // TODO: 大きなフィールドを null に設定します
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: 'Dispose(bool disposing)' にアンマネージド リソースを解放するコードが含まれる場合にのみ、ファイナライザーをオーバーライドします
+        // ~DocumentModel()
+        // {
+        //     // このコードを変更しないでください。クリーンアップ コードを 'Dispose(bool disposing)' メソッドに記述します
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // このコードを変更しないでください。クリーンアップ コードを 'Dispose(bool disposing)' メソッドに記述します
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
     }
 }

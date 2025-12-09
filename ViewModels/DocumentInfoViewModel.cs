@@ -44,14 +44,10 @@ namespace FooEditor.WinUI.ViewModels
             }
         }
 
-        public DocumentInfoViewModel()
+        public DocumentInfoViewModel(bool useFileMapping = false)
         {
-            this._model = new DocumentModel();
+            this._model = new DocumentModel(useFileMapping);
             this._model.DocumentTypeChanged += _model_DocumentTypeChanged;
-            AppSettings.Current.ChangedSetting += (s, e) =>
-            {
-                this.ApplyCurrentSetting();
-            };
         }
 
         private void _model_DocumentTypeChanged(object sender, DocumentTypeEventArg e)
@@ -82,7 +78,7 @@ namespace FooEditor.WinUI.ViewModels
             this._model.Document.RequestRedraw();
         }
 
-        public DocumentInfoViewModel(string title) : this()
+        public DocumentInfoViewModel(string title, bool useFileMapping = false) : this(useFileMapping)
         {
             this.DocumentModel.Title = title;
         }

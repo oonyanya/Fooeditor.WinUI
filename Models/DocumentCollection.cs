@@ -96,14 +96,24 @@ namespace FooEditor.WinUI.Models
 
         public event EventHandler<DocumentCollectionEventArgs> ActiveDocumentChanged;
 
-        public async Task AddFromFile(StorageFile file,System.Text.Encoding enc = null)
+        public async Task AddFromFile(StorageFile file,System.Text.Encoding enc = null, bool useFileMapping = false)
         {
             if (file != null)
             {
                 if (this.ActiveDocument(file.Path))
                     return;
 
-                DocumentInfoViewModel info = new DocumentInfoViewModel(file.Name);
+                DocumentInfoViewModel info;
+                if (useFileMapping)
+                {
+                    var loader = new Windows.ApplicationModel.Resources.ResourceLoader();
+                    info = new DocumentInfoViewModel(loader.GetString("FileMappingModePrefix") + file.Name, useFileMapping);
+                }
+                else
+                {
+                    info = new DocumentInfoViewModel(file.Name, useFileMapping);
+
+                }
                 this.AddDocument(info);
                 await info.DocumentModel.LoadFile(await FileModel.GetFileModel(file), enc);
                 StorageApplicationPermissions.MostRecentlyUsedList.Add(file, "mrufile");
@@ -125,7 +135,7 @@ namespace FooEditor.WinUI.Models
             int index = this.IndexOf(param);
             if (index != -1)
             {
-                param.DocumentModel.Document.Dispose();
+                param.DocumentModel.Dispose();
 
                 this.RemoveAt(index);
 
