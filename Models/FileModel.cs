@@ -123,7 +123,9 @@ namespace FooEditor
 
         public async Task<Stream> GetReadStreamAsync()
         {
-            return await this.File.OpenStreamForReadAsync();
+            var handle = this.File.CreateSafeFileHandle();
+            var stream = (Stream)new FileStream(handle, FileAccess.Read, 0);
+            return await Task.FromResult(stream);
         }
 
         public async Task<Stream> GetWriteStreamAsync()
