@@ -73,6 +73,8 @@ namespace FooEditor.WinUI.ViewModels
                         this.Result = string.Format(loader.GetString("LineNumberOutOutOfRange"), 1, this.MaxRow);
                         return;
                     }
+                    if (newPostion.row < 0)
+                        newPostion.row = 0;
                     var documentModel = DocumentCollection.Instance.Current.DocumentModel;
                     var document = documentModel.Document;
                     documentModel.IsProgressNow = true;
