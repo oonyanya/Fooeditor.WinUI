@@ -1,11 +1,12 @@
 ﻿using System;
-using System.IO;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using CommunityToolkit.Mvvm.ComponentModel;
 using FooEditEngine;
 using FooEditEngine.WinUI;
-using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace FooEditor.WinUI.Models
 {
@@ -33,6 +34,7 @@ namespace FooEditor.WinUI.Models
     public class DocumentModel : ObservableObject,IDisposable
     {
         const int CACHESIZE = 256;
+        const int waitMiniumMilliseconds = 500;
         string _CurrentFilePath;
         Stream _CurrentFileMappingStream;
         public string CurrentFilePath
@@ -290,6 +292,8 @@ namespace FooEditor.WinUI.Models
 
         public async Task LoadFile(FileModel file, Encoding enc = null)
         {
+            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
+            sw.Start();
             this.IsProgressNow = true;
             try
             {
@@ -298,6 +302,11 @@ namespace FooEditor.WinUI.Models
             finally
             {
                 this.CurrentFilePath = file.Path;
+                sw.Stop();
+                if(sw.ElapsedMilliseconds < waitMiniumMilliseconds)
+                {
+                    await Task.Delay(waitMiniumMilliseconds);
+                }
                 this.IsProgressNow = false;
             }
         }
@@ -377,6 +386,8 @@ namespace FooEditor.WinUI.Models
                 throw new InvalidOperationException("Can't overwrite when file mapping");
             }
 
+            System.Diagnostics.Stopwatch stopwatch = new System.Diagnostics.Stopwatch();
+            stopwatch.Start();
             try
             {
                 this.IsProgressNow = true;
@@ -416,7 +427,12 @@ namespace FooEditor.WinUI.Models
                     this.Encode = enc;
                 this.IsDirty = false;
                 this.hasUnAutoSavedDocument = true; //メタデータを更新する必要がある
-            }finally { 
+            }finally {
+                stopwatch.Stop();
+                if (stopwatch.ElapsedMilliseconds < waitMiniumMilliseconds)
+                {
+                    await Task.Delay(waitMiniumMilliseconds);
+                }
                 this.IsProgressNow = false;
             }
         }

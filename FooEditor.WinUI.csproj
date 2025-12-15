@@ -24,7 +24,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x64</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <VersionPrefix>-alpha5</VersionPrefix>
+    <VersionPrefix>-alpha6</VersionPrefix>
     <Version>1.26.16$(VersionPrefix)</Version>
     <SupportedOSPlatformVersion>10.0.22621.0</SupportedOSPlatformVersion>
   </PropertyGroup>
