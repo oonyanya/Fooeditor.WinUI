@@ -208,10 +208,44 @@ namespace FooEditor.WinUI.Models
             this.hasUnAutoSavedDocument = true;
             this.IsDirty = false;
             this.IsProgressNow = false;
-            this.DocumentTypeChanged += (s, e) => { };
         }
 
         public event EventHandler<DocumentTypeEventArg> DocumentTypeChanged;
+
+        public void OnDocumentTypeChanged(object sender, DocumentTypeEventArg e)
+        {
+            AppSettings.Current.FileType = e.newFileType;
+            this.ApplyCurrentSetting();
+
+            if (e.hilighter == null)
+            {
+                this.Hilighter = e.hilighter;
+                this.Document.LayoutLines.ClearHilight();
+            }
+            else
+            {
+                this.Hilighter = e.hilighter;
+                this.Document.LayoutLines.HilightAll();
+            }
+
+            if (e.folding == null)
+            {
+                this.Document.LayoutLines.ClearFolding();
+            }
+            else
+            {
+                this.Document.LayoutLines.ClearFolding();
+                this.FoldingStrategy = e.folding;
+                this.Document.LayoutLines.GenerateFolding();
+            }
+
+            if (this.DocumentTypeChanged != null)
+            {
+                this.DocumentTypeChanged(sender, e);
+            }
+
+            this.Document.RequestRedraw();
+        }
 
         AutoIndent autoIndent = new AutoIndent();
         private bool disposedValue;
@@ -226,13 +260,13 @@ namespace FooEditor.WinUI.Models
 
             if (type == null)
             {
-                this.DocumentTypeChanged(this, arg);
+                this.OnDocumentTypeChanged(this, arg);
                 return;
             }else if(string.IsNullOrEmpty(type.DocumentType))
             {
                 if (type.DocumentTypeName == AppSettings.TextType && type.EnableGenerateFolding)
                     arg.folding = new WZTextFoldingGenerator();
-                this.DocumentTypeChanged(this, arg);
+                this.OnDocumentTypeChanged(this, arg);
                 return;
             }
 
@@ -240,7 +274,7 @@ namespace FooEditor.WinUI.Models
             FolderModel keywordFolder = await FolderModel.TryGetFolderFromAppSetting(ViewModels.MainPageViewModel.KeywordFolderName);
             if (keywordFolder == null)
             {
-                this.DocumentTypeChanged(this, new DocumentTypeEventArg(type));
+                this.OnDocumentTypeChanged(this, new DocumentTypeEventArg(type));
                 return;
             }
             file = await keywordFolder.GetFile(type.DocumentType);
@@ -277,7 +311,7 @@ namespace FooEditor.WinUI.Models
                 this.Document.AutoComplete = AutoComplete;
             }
 
-            this.DocumentTypeChanged(this, arg);
+            this.OnDocumentTypeChanged(this, arg);
         }
 
         private FileType GetFileType(string file)

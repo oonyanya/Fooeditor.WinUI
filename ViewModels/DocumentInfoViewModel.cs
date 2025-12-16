@@ -47,35 +47,6 @@ namespace FooEditor.WinUI.ViewModels
         public DocumentInfoViewModel(bool useFileMapping = false)
         {
             this._model = new DocumentModel(useFileMapping);
-            this._model.DocumentTypeChanged += _model_DocumentTypeChanged;
-        }
-
-        private void _model_DocumentTypeChanged(object sender, DocumentTypeEventArg e)
-        {
-            AppSettings.Current.FileType = e.newFileType;
-            this.ApplyCurrentSetting();
-
-            if (e.hilighter == null)
-            {
-                this._model.Document.LayoutLines.ClearHilight();
-            }
-            else
-            {
-                this._model.Hilighter = e.hilighter;
-                this._model.Document.LayoutLines.HilightAll();
-            }
-
-            if (e.folding == null)
-            {
-                this._model.Document.LayoutLines.ClearFolding();
-            }
-            else
-            {
-                this._model.Document.LayoutLines.ClearFolding();
-                this._model.FoldingStrategy = e.folding;
-                this._model.Document.LayoutLines.GenerateFolding();
-            }
-            this._model.Document.RequestRedraw();
         }
 
         public DocumentInfoViewModel(string title, bool useFileMapping = false) : this(useFileMapping)
@@ -141,7 +112,6 @@ namespace FooEditor.WinUI.ViewModels
             reader.ReadStartElement("DocumentInfoViewModel");
             this.DocumentModel = new DocumentModel();
             this.DocumentModel.ReadXml(reader);
-            this.DocumentModel.DocumentTypeChanged += _model_DocumentTypeChanged;
         }
 
         public void WriteXml(System.Xml.XmlWriter writer)
