@@ -34,7 +34,7 @@ namespace FooEditor.WinUI.Models
     public class DocumentModel : ObservableObject,IDisposable
     {
         const int CACHESIZE = 256;
-        const int waitMiniumMilliseconds = 500;
+        const int waitMiniumMilliseconds = 250;
         string _CurrentFilePath;
         Stream _CurrentFileMappingStream;
         public string CurrentFilePath
