@@ -170,8 +170,10 @@ namespace FooEditor.WinUI.Models
 
         public bool useFileMapping
         {
-            get;
-            private set;
+            get
+            {
+                return this.Document.BufferType.HasFlag(DocumentBufferType.FileMapping);
+            }
         }
 
         public DocumentModel(bool useFileMapping = false)
@@ -183,12 +185,10 @@ namespace FooEditor.WinUI.Models
                     this.Document = new Document(cache_size:CACHESIZE, use_file_mapping:useFileMapping, mapping_cache_size:CACHESIZE);
                 else
                     this.Document = new Document(null, workfilepath, CACHESIZE,useFileMapping,CACHESIZE);
-                this.useFileMapping = useFileMapping;
             }
             else
             {
                 this.Document = new Document(use_file_mapping: useFileMapping, mapping_cache_size: CACHESIZE);
-                this.useFileMapping = useFileMapping;
             }
             this.Document.InsertMode = true;
             this.Document.Update += (s, e) => {
