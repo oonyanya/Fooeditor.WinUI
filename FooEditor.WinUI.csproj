@@ -71,7 +71,7 @@
     <PackageReference Include="CommunityToolkit.WinUI.Controls.Primitives" Version="8.2.251219" />
     <PackageReference Include="CommunityToolkit.WinUI.Helpers" Version="8.2.251219" />
     <PackageReference Include="CommunityToolkit.WinUI.Media" Version="8.2.251219" />
-    <PackageReference Include="FooEditEngine.WinUI" Version="1.2.10-alpha11" />
+    <PackageReference Include="FooEditEngine.WinUI" Version="1.2.10-alpha12" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.8.260101001" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.7463" />
     <Manifest Include="$(ApplicationManifest)" />
